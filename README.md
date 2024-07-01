@@ -1,19 +1,19 @@
-# Welcome to the PxServ Documentation!
+# PxServ Dokümantasyonuna hoş geldiniz!
 
-This documentation will explain how to use PxServ APIs and libraries, and how to communicate with them.
+Bu dokümantasyon PxServ API'lerinin ve kütüphanelerinin nasıl kullanılacağını ve bunlarla nasıl iletişim kurulacağını açıklayacaktır.
 
 
 
 {% hint style="info" %}
-Currently PxServ APIs only support a format readable by the Arduino library called PxServ Command.
+Base URL : https://api.pxserv.net
 {% endhint %}
 
 
 
-{% content-ref url="arduino-lib.-usage/sending-data.md" %}
-[sending-data.md](arduino-lib.-usage/sending-data.md)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}
 
-{% content-ref url="arduino-lib.-usage/reading-data.md" %}
-[reading-data.md](arduino-lib.-usage/reading-data.md)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}
