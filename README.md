@@ -8,12 +8,3 @@ Bu dokümantasyon PxServ API'lerinin ve kütüphanelerinin nasıl kullanılacağ
 Base URL : https://api.pxserv.net
 {% endhint %}
 
-
-
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
-{% endcontent-ref %}
-
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
-{% endcontent-ref %}
