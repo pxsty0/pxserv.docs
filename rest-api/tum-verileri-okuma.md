@@ -2,7 +2,7 @@
 
 <mark style="color:green;">`POST`</mark> `/database/getAll`
 
-Bu endpoint, PxServ proje veritabanına tüm verileri okumayı sağlar
+Bu endpoint, PxServ proje veritabanından tüm verileri okumayı sağlar
 
 **Headers**
 
