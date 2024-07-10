@@ -7,3 +7,4 @@
 * [Veri Kaydetme](rest-api/veri-kaydetme.md)
 * [Veri Okuma](rest-api/veri-okuma.md)
 * [Tüm Verileri Okuma](rest-api/tum-verileri-okuma.md)
+* [Veri Kaldırma](rest-api/veri-kaldirma.md)
