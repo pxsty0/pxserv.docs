@@ -2,9 +2,10 @@
 
 * [PxServ Dokümantasyonuna hoş geldiniz!](README.md)
 
-## Arduino Kütüphanesi
+## Kütüphane Örnekleri
 
-* [Arduino Kütüphanesi Örneği](arduino-kutuphanesi/arduino-kutuphanesi-ornegi.md)
+* [Arduino Kütüphanesi Örneği](kutuphane-ornekleri/arduino-kutuphanesi-ornegi.md)
+* [JavaScript Örneği](kutuphane-ornekleri/javascript-ornegi.md)
 
 ## Rest API
 
