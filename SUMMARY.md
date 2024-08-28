@@ -5,7 +5,7 @@
 ## Kütüphane Örnekleri
 
 * [Arduino Kütüphanesi](arduino-kutuphanesi/arduino-kutuphanesi-ornegi.md)
-* [JavaScript Örneği](kutuphane-ornekleri/javascript-ornegi.md)
+* [JavaScript / TypeScript Örneği](kutuphane-ornekleri/javascript-ornegi.md)
 
 ## Rest API
 
