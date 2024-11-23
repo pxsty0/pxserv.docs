@@ -16,7 +16,7 @@
 
 ## Rest API
 
-* [Veri Kaydetme](rest-api/veri-kaydetme.md)
-* [Veri Okuma](rest-api/veri-okuma.md)
-* [Tüm Verileri Okuma](rest-api/tum-verileri-okuma.md)
-* [Veri Kaldırma](rest-api/veri-kaldirma.md)
+* [REST API Veri Kaydetme](rest-api/veri-kaydetme.md)
+* [REST API Veri Okuma](rest-api/veri-okuma.md)
+* [REST API Tüm Verileri Okuma](rest-api/tum-verileri-okuma.md)
+* [REST API Veri Kaldırma](rest-api/veri-kaldirma.md)
