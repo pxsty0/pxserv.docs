@@ -1,6 +1,6 @@
 # Data Saving
 
-<mark style=“color:green;”>`POST`</mark> `https://api.pxserv.net/database/setData`
+<mark style="color:green;">`POST`</mark> `https://api.pxserv.net/database/setData`
 
 This endpoint allows saving data to the PxServ project database
 

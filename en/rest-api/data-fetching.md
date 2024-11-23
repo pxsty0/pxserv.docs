@@ -1,6 +1,6 @@
 # Data Fetching
 
-<mark style=“color:green;”>`POST`</mark> `https://api.pxserv.net/database/getData`
+<mark style="color:green;">`POST`</mark> `https://api.pxserv.net/database/getData`
 
 This endpoint allows reading data into the PxServ project database
 

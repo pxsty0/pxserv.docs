@@ -1,6 +1,6 @@
 # Data Removing
 
-<mark style=“color:green;”>`POST`</mark> `https://api.pxserv.net/database/removeData`
+<mark style="color:green;">`POST`</mark> `https://api.pxserv.net/database/removeData`
 
 This endpoint allows to remove data to the PxServ project database
 
