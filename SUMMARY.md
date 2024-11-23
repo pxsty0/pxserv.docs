@@ -17,3 +17,15 @@
 ## Örnek Projeler
 
 * [Page 1](ornek-projeler/page-1.md)
+
+## 🇺🇲 English <a href="#en" id="en"></a>
+
+* [Arduino Library](en/arduino-library.md)
+* [JavaScript / TypeScript Library](en/javascript-typescript-library.md)
+* [Rust Library](en/rust-library.md)
+
+## 🇹🇷 Türkçe <a href="#tr" id="tr"></a>
+
+* [Arduino Kütüphanesi](tr/arduino-kutuphanesi.md)
+* [JavaScript / TypeScript Kütüphanesi](tr/javascript-typescript-kutuphanesi.md)
+* [Rust Kütüphanesi](tr/rust-kutuphanesi.md)
