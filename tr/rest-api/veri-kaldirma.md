@@ -1,0 +1,2 @@
+# Veri Kaldırma
+

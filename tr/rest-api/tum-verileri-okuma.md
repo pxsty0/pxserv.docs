@@ -1,0 +1,2 @@
+# Tüm Verileri Okuma
+
