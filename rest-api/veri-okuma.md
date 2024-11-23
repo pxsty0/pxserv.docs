@@ -1,44 +1,49 @@
-# Veri Okuma
+# REST API Veri Okuma
 
-<mark style="color:green;">`POST`</mark> `/database/getData`
+<mark style="color:green;">`POST`</mark> `https://api.pxserv.net/database/getData`
 
-Bu endpoint, PxServ proje veritabanından veri okumayı sağlar
+Bu endpoint, PxServ proje veritabanına veri okumayı sağlar
 
 **Headers**
 
-| Name         | Value              |
-| ------------ | ------------------ |
-| Content-Type | `application/json` |
+| Anahtar         | Değer              |
+| --------------- | ------------------ |
+| Content-Type    | `application/json` |
+| apikey          | `Proje API Keyi`   |
+| Accept-Language | `tr` \| `en`       |
 
 **Body**
 
-| Name     | Type             | Description           |
-| -------- | ---------------- | --------------------- |
-| `key`    | string \| number | Key of the data       |
-| `apiKey` | string           | apiKey of the project |
+| Anahtar | Tip              | Açıklama      |
+| ------- | ---------------- | ------------- |
+| `key`   | string \| number | Veri anahtarı |
 
 **Response**
 
 {% tabs %}
 {% tab title="200" %}
+
 ```json
 {
   "status": 200,
   "message": "OK",
   "data": {
-    "value": "<value>"
+    "value": "<VALUE>"
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Error" %}
+
 ```json
 {
-  "status": 404,
-  "message": "Geçersiz 'apiKey'",
+  "status": 401,
+  "message": "Invalid API key.",
   "data": {}
 }
 ```
+
 {% endtab %}
 {% endtabs %}
