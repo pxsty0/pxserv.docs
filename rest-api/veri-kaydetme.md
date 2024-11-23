@@ -1,4 +1,4 @@
-# Veri Kaydetme
+# REST API Veri Kaydetme
 
 <mark style="color:green;">`POST`</mark> `https://api.pxserv.net/database/setData`
 
@@ -23,6 +23,7 @@ Bu endpoint, PxServ proje veritabanına veri kaydetmeyi sağlar
 
 {% tabs %}
 {% tab title="200" %}
+
 ```json
 {
   "status": 200,
@@ -30,9 +31,11 @@ Bu endpoint, PxServ proje veritabanına veri kaydetmeyi sağlar
   "data": {}
 }
 ```
+
 {% endtab %}
 
 {% tab title="Error" %}
+
 ```json
 {
   "status": 401,
@@ -40,5 +43,6 @@ Bu endpoint, PxServ proje veritabanına veri kaydetmeyi sağlar
   "data": {}
 }
 ```
+
 {% endtab %}
 {% endtabs %}
