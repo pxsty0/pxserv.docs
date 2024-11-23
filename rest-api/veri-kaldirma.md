@@ -1,45 +1,47 @@
-# Veri Kaldırma
+# REST API Veri Kaldırma
 
-<mark style="color:green;">`POST`</mark> `/database/removeData`
+<mark style="color:green;">`POST`</mark> `https://api.pxserv.net/database/removeData`
 
-Bu endpoint, PxServ proje veritabanından veri kaldırmayı sağlar
+Bu endpoint, PxServ proje veritabanına veri kaldırmayı sağlar
 
 **Headers**
 
-| Name         | Value              |
-| ------------ | ------------------ |
-| Content-Type | `application/json` |
+| Anahtar         | Değer              |
+| --------------- | ------------------ |
+| Content-Type    | `application/json` |
+| apikey          | `Proje API Keyi`   |
+| Accept-Language | `tr` \| `en`       |
 
 **Body**
 
-| Name     | Type             | Description           |
-| -------- | ---------------- | --------------------- |
-| `key`    | string \| number | Key of the data       |
-| `apiKey` | string           | apiKey of the project |
+| Anahtar | Tip              | Açıklama      |
+| ------- | ---------------- | ------------- |
+| `key`   | string \| number | Veri anahtarı |
 
 **Response**
 
 {% tabs %}
 {% tab title="200" %}
+
 ```json
 {
   "status": 200,
   "message": "OK",
-  "data": {
-    "oldData1":"oldData1Value",
-    "oldData2":"oldData2Value",
-  }
-}
-```
-{% endtab %}
-
-{% tab title="Error" %}
-```json
-{
-  "status": 404,
-  "message": "Geçersiz 'apiKey'",
   "data": {}
 }
 ```
+
+{% endtab %}
+
+{% tab title="Error" %}
+
+```json
+{
+  "status": 401,
+  "message": "Invalid API key.",
+  "data": {}
+}
+```
+
 {% endtab %}
 {% endtabs %}
