@@ -23,10 +23,3 @@
   * [Data Fetching](en/rest-api/data-fetching.md)
   * [All Data Fetching](en/rest-api/all-data-fetching.md)
   * [Data Removing](en/rest-api/data-removing.md)
-
-## Rest API
-
-* [REST API Veri Kaydetme](rest-api/veri-kaydetme.md)
-* [REST API Veri Okuma](rest-api/veri-okuma.md)
-* [REST API Tüm Verileri Okuma](rest-api/tum-verileri-okuma.md)
-* [REST API Veri Kaldırma](rest-api/veri-kaldirma.md)
