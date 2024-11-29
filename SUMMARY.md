@@ -12,6 +12,8 @@
   * [Veri Okuma](tr/rest-api/veri-okuma.md)
   * [Tüm Verileri Okuma](tr/rest-api/tum-verileri-okuma.md)
   * [Veri Kaldırma](tr/rest-api/veri-kaldirma.md)
+* [Örnek Projeler](tr/ornek-projeler/README.md)
+  * [test](tr/ornek-projeler/test.md)
 
 ## 🇺🇲 English <a href="#en" id="en"></a>
 
@@ -23,3 +25,5 @@
   * [Data Fetching](en/rest-api/data-fetching.md)
   * [All Data Fetching](en/rest-api/all-data-fetching.md)
   * [Data Removing](en/rest-api/data-removing.md)
+* [Example Projects](en/example-projects/README.md)
+  * [test](en/example-projects/test.md)
