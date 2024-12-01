@@ -13,8 +13,8 @@
   * [Tüm Verileri Okuma](tr/rest-api/tum-verileri-okuma.md)
   * [Veri Kaldırma](tr/rest-api/veri-kaldirma.md)
 * [Örnek Projeler](tr/ornek-projeler/README.md)
-  * [Smart Temperature Monitor:](tr/ornek-projeler/smart-temperature-monitor.md)
-  * [Home Security System](tr/ornek-projeler/home-security-system.md)
+  * [Ev Güvenlik Sistemi](tr/ornek-projeler/ev-guvenlik-sistemi.md)
+  * [Akıllı Sıcaklık Monitörü](tr/ornek-projeler/akilli-sicaklik-monitoru.md)
 
 ## 🇺🇲 English <a href="#en" id="en"></a>
 
@@ -27,5 +27,5 @@
   * [All Data Fetching](en/rest-api/all-data-fetching.md)
   * [Data Removing](en/rest-api/data-removing.md)
 * [Example Projects](en/example-projects/README.md)
-  * [Ev Güvenlik Sistemi](en/example-projects/ev-guvenlik-sistemi.md)
-  * [Akıllı Sıcaklık Monitörü](en/example-projects/akilli-sicaklik-monitoru.md)
+  * [Home Security System](en/example-projects/home-security-system.md)
+  * [Smart Temperature Monitor:](en/example-projects/smart-temperature-monitor.md)
