@@ -1,4 +1,4 @@
-# PxServ Rust Library
+# Rust Library
 
 This sample code allows you to perform database operations with the PxServ project. You can perform the following operations:
 
@@ -18,33 +18,35 @@ Below is an example of how to use the PxServ library:
 use pxserv::PxServ;
 
 fn main() {
-    // Create a PxServ instance
-    let client = PxServ::new("API_KEY".to_string());
+    let client = PxServ::new("API_KEY");
 
-    // Saving data
-    let status = client.setdata("temperature".to_string(), "22.5°C".to_string());
-    println!("Status: {}, Message: {}", status.status, status.message);
-
-    // Data extraction
-    let response = client.getdata("temperature".to_string());
-    if let Some(data) = response.data {
-        println!("Data: {}", data);
-    }
-
-    // Data deletion
-    let delete_status = client.removedata("temperature".to_string());
+    // Data saving
+    let set_response = client.setdata("temperature", "22.5°C");
     println!(
-        "Delete Status: {}, Message: {}",
-        delete_status.status, delete_status.message
+        "Status: {}, Message: {}",
+        set_response.status, set_response.message
+    );
+
+    // Data fetching
+    let get_response = client.getdata("temperature");
+    println!(
+        "Status: {}, Message: {}, Data : {:?}",
+        get_response.status, get_response.message, get_response.data
+    );
+
+    // Data removing
+    let remove_response = client.removedata("temperature");
+    println!(
+        "Status: {}, Message: {}",
+        remove_response.status, remove_response.message
     );
 }
 ```
 
-Sample Outputs
-Below is sample output that you can see in the console
+Sample Outputs Below is sample output that you can see in the console
 
 ```
-Status: success, Message: Data saved
-Data 22.5°C
-Deletion Status: success, Message: Data deleted
+Status: 200, Message: OK
+Status: 200, Message: OK, Data : Some("22.5°C")
+Status: 200, Message: OK
 ```
