@@ -17,7 +17,7 @@ Bu örneği kullanmadan önce aşağıdaki kütüphanelerin Arduino IDE'ye yükl
 
 Wi-Fi bağlantısı ve PxServ API anahtarınızı aşağıdaki alanlara girmeniz gerekmektedir:
 
-```cpp
+```c
 #include <WiFi.h>
 #include <PxServ.h>
 
