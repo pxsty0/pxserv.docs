@@ -35,14 +35,13 @@ const PxServ = require("pxserv").default;
 
 // Configuration settings
 const config = {
-  apiKey: "YOUR_API_KEY",
-  baseURL: "https://api.pxserv.net", // Optional, this URL is used by default
+  apiKey: "API_KEY",
 };
 
-// Create a PxServ instance
+// Create an instance of PxServ
 const pxServ = new PxServ(config);
 
-// Get temperature and humidity data from an IoT device and save it to the server
+// Get temperature and humidity data from the IoT device and save it to the server
 const temperature = "22.5°C";
 const humidity = "45%";
 
@@ -69,6 +68,7 @@ const humidity = "45%";
     console.error("An error occurred:", error);
   }
 })();
+
 ```
 
 ### TypeScript
@@ -78,33 +78,40 @@ import PxServ from "pxserv";
 
 // Configuration settings
 const config = {
-  apiKey: "YOUR_API_KEY",
-  baseURL: "https://api.pxserv.net", // Optional, this URL is used by default
+  apiKey: "API_KEY",
 };
 
-// Create a PxServ instance
+// Create an instance of PxServ
 const pxServ = new PxServ(config);
 
-// Get temperature and humidity data from an IoT device and save it to the server
+// Get temperature and humidity data from the IoT device and save it to the server
 const temperature = "22.5°C";
 const humidity = "45%";
 
-await pxServ.setData("temperature", temperature);
-await pxServ.setData("humidity", humidity);
+(async () => {
+  try {
+    // Save temperature and humidity data to the server
+    await pxServ.setData("temperature", temperature);
+    await pxServ.setData("humidity", humidity);
 
-// Retrieve temperature and humidity data from the server
-const currentTemperature = await pxServ.getData("temperature");
-const currentHumidity = await pxServ.getData("humidity");
+    // Retrieve temperature and humidity data from the server
+    const currentTemperature = await pxServ.getData("temperature");
+    const currentHumidity = await pxServ.getData("humidity");
 
-console.log(`Current Temperature: ${currentTemperature}`); // 'Current Temperature: 22.5°C'
-console.log(`Current Humidity: ${currentHumidity}`); // 'Current Humidity: 45%'
+    console.log(`Current Temperature: ${currentTemperature}`); // 'Current Temperature: 22.5°C'
+    console.log(`Current Humidity: ${currentHumidity}`); // 'Current Humidity: 45%'
 
-// List all data
-const allData = await pxServ.getAll();
-console.log(allData); // {'temperature': '22.5°C', 'humidity': '45%'}
+    // List all data
+    const allData = await pxServ.getAll();
+    console.log(allData); // {'temperature': '22.5°C', 'humidity': '45%'}
 
-// Delete old temperature data
-await pxServ.removeData("temperature");
+    // Delete old temperature data
+    await pxServ.removeData("temperature");
+  } catch (error) {
+    console.error("An error occurred:", error);
+  }
+})();
+
 ```
 
 ## Usage

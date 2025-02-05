@@ -35,8 +35,7 @@ const PxServ = require("pxserv").default;
 
 // Yapılandırma ayarları
 const config = {
-  apiKey: "YOUR_API_KEY",
-  baseURL: "https://api.pxserv.net", // İsteğe bağlı, varsayılan olarak bu URL kullanılır
+  apiKey: "API_KEY",
 };
 
 // PxServ örneği oluşturma
@@ -56,8 +55,8 @@ const humidity = "45%";
     const currentTemperature = await pxServ.getData("temperature");
     const currentHumidity = await pxServ.getData("humidity");
 
-    console.log(`Current Temperature: ${currentTemperature}`); // 'Current Temperature: 22.5°C'
-    console.log(`Current Humidity: ${currentHumidity}`); // 'Current Humidity: 45%'
+    console.log(`Güncel Sıcaklık: ${currentTemperature}`); // 'Güncel Sıcaklık: 22.5°C'
+    console.log(`Güncel Nem: ${currentHumidity}`); // 'Güncel Nem: 45%'
 
     // Tüm verileri listeleme
     const allData = await pxServ.getAll();
@@ -66,9 +65,10 @@ const humidity = "45%";
     // Eski sıcaklık verisini silme
     await pxServ.removeData("temperature");
   } catch (error) {
-    console.error("An error occurred:", error);
+    console.error("Bir hata oluştu:", error);
   }
 })();
+
 ```
 
 ### TypeScript
@@ -78,8 +78,7 @@ import PxServ from "pxserv";
 
 // Yapılandırma ayarları
 const config = {
-  apiKey: "YOUR_API_KEY",
-  baseURL: "https://api.pxserv.net", // İsteğe bağlı, varsayılan olarak bu URL kullanılır
+  apiKey: "API_KEY",
 };
 
 // PxServ örneği oluşturma
@@ -89,22 +88,30 @@ const pxServ = new PxServ(config);
 const temperature = "22.5°C";
 const humidity = "45%";
 
-await pxServ.setData("temperature", temperature);
-await pxServ.setData("humidity", humidity);
+(async () => {
+  try {
+    // Sıcaklık ve nem verilerini sunucuya kaydet
+    await pxServ.setData("temperature", temperature);
+    await pxServ.setData("humidity", humidity);
 
-// Sıcaklık ve nem verilerini sunucudan çekme
-const currentTemperature = await pxServ.getData("temperature");
-const currentHumidity = await pxServ.getData("humidity");
+    // Sıcaklık ve nem verilerini sunucudan çekme
+    const currentTemperature = await pxServ.getData("temperature");
+    const currentHumidity = await pxServ.getData("humidity");
 
-console.log(`Current Temperature: ${currentTemperature}`); // 'Current Temperature: 22.5°C'
-console.log(`Current Humidity: ${currentHumidity}`); // 'Current Humidity: 45%'
+    console.log(`Güncel Sıcaklık: ${currentTemperature}`); // 'Güncel Sıcaklık: 22.5°C'
+    console.log(`Güncel Nem: ${currentHumidity}`); // 'Güncel Nem: 45%'
 
-// Tüm verileri listeleme
-const allData = await pxServ.getAll();
-console.log(allData); // {'temperature': '22.5°C', 'humidity': '45%'}
+    // Tüm verileri listeleme
+    const allData = await pxServ.getAll();
+    console.log(allData); // {'temperature': '22.5°C', 'humidity': '45%'}
 
-// Eski sıcaklık verisini silme
-await pxServ.removeData("temperature");
+    // Eski sıcaklık verisini silme
+    await pxServ.removeData("temperature");
+  } catch (error) {
+    console.error("Bir hata oluştu:", error);
+  }
+})();
+
 ```
 
 ## Kullanım
