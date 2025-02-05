@@ -1,23 +1,23 @@
-# PxServ Arduino Library
+# Arduino Library
 
 This example code allows you to perform database operations with the PxServ project. You can perform the following operations:
 
-- Save data to the database
-- Read data from the database
-- Delete data from the database
+* Save data to the database
+* Read data from the database
+* Delete data from the database
 
 ## Requirements
 
 Before using this example, make sure the following libraries are installed in the Arduino IDE:
 
-- **WiFi.h**: To establish a Wi-Fi connection.
-- **PxServ.h**: To communicate with the PxServ API.
+* **WiFi.h**: To establish a Wi-Fi connection.
+* **PxServ.h**: To communicate with the PxServ API.
 
 ## Connection Settings
 
 You need to enter your Wi-Fi connection details and PxServ API key in the following fields:
 
-```c
+```arduino
 #include <WiFi.h>
 #include <PxServ.h>
 

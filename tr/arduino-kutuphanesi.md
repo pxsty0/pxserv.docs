@@ -1,23 +1,23 @@
-# PxServ Arduino Kütüphanesi
+# Arduino Kütüphanesi
 
 Bu örnek kod, PxServ projesi ile veri tabanı işlemleri yapmanızı sağlar. Aşağıdaki işlemleri gerçekleştirebilirsiniz:
 
-- Veritabanına veri kaydetme
-- Veritabanından veri okuma
-- Veritabanından veri silme
+* Veritabanına veri kaydetme
+* Veritabanından veri okuma
+* Veritabanından veri silme
 
 ## Gereksinimler
 
 Bu örneği kullanmadan önce aşağıdaki kütüphanelerin Arduino IDE'ye yüklü olduğundan emin olun:
 
-- **WiFi.h**: Wi-Fi bağlantısı sağlamak için.
-- **PxServ.h**: PxServ API'si ile iletişim kurmak için.
+* **WiFi.h**: Wi-Fi bağlantısı sağlamak için.
+* **PxServ.h**: PxServ API'si ile iletişim kurmak için.
 
 ## Bağlantı Ayarları
 
 Wi-Fi bağlantısı ve PxServ API anahtarınızı aşağıdaki alanlara girmeniz gerekmektedir:
 
-```c
+```arduino
 #include <WiFi.h>
 #include <PxServ.h>
 
