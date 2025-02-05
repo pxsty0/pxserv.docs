@@ -1,16 +1,20 @@
-# PxServ JavaScript / TypeScript Kütüphanesi
+---
+icon: js
+---
+
+# JavaScript / TypeScript Kütüphanesi
 
 Bu örnek kod, PxServ projesi ile veri tabanı işlemleri yapmanızı sağlar. Aşağıdaki işlemleri gerçekleştirebilirsiniz:
 
-- Veritabanına veri kaydetme
-- Veritabanından veri okuma
-- Veritabanından veri silme
+* Veritabanına veri kaydetme
+* Veritabanından veri okuma
+* Veritabanından veri silme
 
 ## Gereksinimler
 
 Bu örneği kullanmadan önce aşağıdaki kütüphanelerin yüklü olduğundan emin olun:
 
-- **pxserv**: PxServ API'si ile iletişim kurmak için.
+* **pxserv**: PxServ API'si ile iletişim kurmak için.
 
 ## Kurulum
 
@@ -107,8 +111,7 @@ await pxServ.removeData("temperature");
 
 Bu kodları kendi projenize ekleyin ve gerekli kütüphaneleri yükledikten sonra çalıştırın. Kod, PxServ API'si ile veri ekleme, okuma ve silme işlemlerini gerçekleştirecektir.
 
-Örnek Çıktılar
-Aşağıda, konsolda görebileceğiniz örnek çıktılar bulunmaktadır:
+Örnek Çıktılar Aşağıda, konsolda görebileceğiniz örnek çıktılar bulunmaktadır:
 
 ```
 Current Temperature: 22.5°C

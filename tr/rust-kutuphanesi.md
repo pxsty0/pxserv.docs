@@ -1,3 +1,7 @@
+---
+icon: rust
+---
+
 # Rust Kütüphanesi
 
 Bu örnek kod, PxServ projesi ile veri tabanı işlemleri yapmanızı sağlar. Aşağıdaki işlemleri gerçekleştirebilirsiniz:

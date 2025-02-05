@@ -1,16 +1,20 @@
-# PxServ JavaScript / TypeScript Library
+---
+icon: js
+---
+
+# JavaScript / TypeScript Library
 
 This example code allows you to perform database operations with the PxServ project. The following operations are supported:
 
-- Save data to the database
-- Read data from the database
-- Delete data from the database
+* Save data to the database
+* Read data from the database
+* Delete data from the database
 
 ## Requirements
 
 Before using this example, ensure the following libraries are installed:
 
-- **pxserv**: Used to communicate with the PxServ API.
+* **pxserv**: Used to communicate with the PxServ API.
 
 ## Installation
 
