@@ -121,8 +121,8 @@ Bu kodları kendi projenize ekleyin ve gerekli kütüphaneleri yükledikten sonr
 Örnek Çıktılar Aşağıda, konsolda görebileceğiniz örnek çıktılar bulunmaktadır:
 
 ```
-Current Temperature: 22.5°C
-Current Humidity: 45%
+Güncel Sıcaklık: 22.5°C
+Güncel Nem: 45%
 {'temperature': '22.5°C', 'humidity': '45%'}
 ```
 
