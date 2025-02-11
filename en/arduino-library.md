@@ -22,7 +22,6 @@ Before using this example, make sure the following libraries are installed in th
 You need to enter your Wi-Fi connection details and PxServ API key in the following fields:
 
 ```arduino
-#include <WiFi.h>
 #include <PxServ.h>
 
 // Wi-Fi settings (Wi-Fi SSID and Password)

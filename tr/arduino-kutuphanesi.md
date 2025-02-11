@@ -22,7 +22,6 @@ Bu örneği kullanmadan önce aşağıdaki kütüphanelerin Arduino IDE'ye yükl
 Wi-Fi bağlantısı ve PxServ API anahtarınızı aşağıdaki alanlara girmeniz gerekmektedir:
 
 ```arduino
-#include <WiFi.h>
 #include <PxServ.h>
 
 // Wi-Fi ayarları (Wi-Fi SSID ve Şifre)
