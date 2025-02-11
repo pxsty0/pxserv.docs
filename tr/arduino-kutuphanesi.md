@@ -24,49 +24,49 @@ Wi-Fi bağlantısı ve PxServ API anahtarınızı aşağıdaki alanlara girmeniz
 ```arduino
 #include <PxServ.h>
 
-// Wi-Fi ayarları (Wi-Fi SSID ve Şifre)
-#define WIFI_SSID "your_wifi_ssid" // Wi-Fi Adı
-#define WIFI_PASS "your_wifi_password" // Wi-Fi Şifresi
-
-// PxServ API Key (Proje API Anahtarınızı buraya ekleyin)
-PxServ client("your_pxserv_api_key");
+// PxServ API Anahtarı (Proje API anahtarınızı buraya girin)
+PxServ client("pxserv_api_key");
 
 void setup()
 {
-  // Seri haberleşmeyi başlat
-  Serial.begin(115200);
-
-  // Wi-Fi'a bağlan
-  WiFi.begin(WIFI_SSID, WIFI_PASS);
-  Serial.print("Wi-Fi'ya bağlanıyor...");
-
-  // Bağlantı sağlanana kadar bekle
-  while (WiFi.status() != WL_CONNECTED)
-  {
-    Serial.print(".");
-    delay(500); // Bağlantı sürecini yavaşlatmak için kısa bir gecikme eklenebilir
-  }
-  Serial.println("Bağlandı!");
+    // Wi-Fi ayarları (Wi-Fi SSID ve Şifre)
+    Serial.begin(115200);
+    PxServ::connectWifi("wifi_ssid", "wifi_sifre");
 }
 
 void loop()
 {
-  // Veri ekle (Set Data)
-  PxServ::Callback setResult = client.setData("msg", "value"); // "msg" anahtarına "value" değerini ekle
-  Serial.println("Set Result -> Status: " + String(setResult.status) + " | Message: " + String(setResult.message) + " | Data: " + String(setResult.data));
+    // Veri Yazdırma
+    PxServ::Callback setResult = client.setData("msg", "value"); // "msg" anahtarına "value" değerini ekle
+    Serial.print("Veri Ekleme Sonucu -> Durum: ");
+    Serial.print(setResult.status);
+    Serial.print(" | Mesaj: ");
+    Serial.print(setResult.message);
+    Serial.print(" | Veri: ");
+    Serial.println(setResult.data);
 
-  delay(2000); // İki saniye bekle
+    delay(2000); // İki saniye bekle
 
-  // Veri al (Get Data)
-  PxServ::Callback getResult = client.getData("msg"); // "msg" anahtarı için değeri getir
-  Serial.println("Get Result -> Status: " + String(getResult.status) + " | Message: " + String(getResult.message) + " | Data: " + String(getResult.data));
+    // Veri Okuma
+    PxServ::Callback getResult = client.getData("msg"); // "msg" anahtarının değerini getir
+    Serial.print("Veri Okuma Sonucu -> Durum: ");
+    Serial.print(getResult.status);
+    Serial.print(" | Mesaj: ");
+    Serial.print(getResult.message);
+    Serial.print(" | Veri: ");
+    Serial.println(getResult.data);
 
-  delay(2000); // İki saniye bekle
+    delay(2000); // İki saniye bekle
 
-  // Veri kaldır (Remove Data)
-  PxServ::Callback removeResult = client.removeData("msg"); // "msg" anahtarını kaldır
-  Serial.println("Remove Result -> Status: " + String(removeResult.status) + " | Message: " + String(removeResult.message) + " | Data: " + String(removeResult.data));
+    // Veri Kaldırma
+    PxServ::Callback removeResult = client.removeData("msg"); // "msg" anahtarını kaldır
+    Serial.print("Kaldırma Sonucu -> Durum: ");
+    Serial.print(removeResult.status);
+    Serial.print(" | Mesaj: ");
+    Serial.print(removeResult.message);
+    Serial.print(" | Veri: ");
+    Serial.println(removeResult.data);
 
-  delay(2000); // İki saniye bekle
+    delay(2000); // İki saniye bekle
 }
 ```

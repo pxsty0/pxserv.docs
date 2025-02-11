@@ -24,49 +24,49 @@ You need to enter your Wi-Fi connection details and PxServ API key in the follow
 ```arduino
 #include <PxServ.h>
 
-// Wi-Fi settings (Wi-Fi SSID and Password)
-#define WIFI_SSID "your_wifi_ssid" // Wi-Fi Name
-#define WIFI_PASS "your_wifi_password" // Wi-Fi Password
-
 // PxServ API Key (Enter your project API key here)
 PxServ client("your_pxserv_api_key");
 
 void setup()
 {
-  // Start serial communication
-  Serial.begin(115200);
-
-  // Connect to Wi-Fi
-  WiFi.begin(WIFI_SSID, WIFI_PASS);
-  Serial.print("Connecting to Wi-Fi...");
-
-  // Wait until the connection is established
-  while (WiFi.status() != WL_CONNECTED)
-  {
-    Serial.print(".");
-    delay(500); // Adding a short delay to slow down the connection process
-  }
-  Serial.println("Connected!");
+    // Wi-Fi settings (Wi-Fi SSID and Password)
+    Serial.begin(115200);
+    PxServ::connectWifi("your_wifi_ssid", "your_wifi_password");
 }
 
 void loop()
 {
-  // Add data (Set Data)
-  PxServ::Callback setResult = client.setData("msg", "value"); // Add "value" to the "msg" key
-  Serial.println("Set Result -> Status: " + String(setResult.status) + " | Message: " + String(setResult.message) + " | Data: " + String(setResult.data));
+    // Add data
+    PxServ::Callback setResult = client.setData("msg", "value"); // Add "value" to the "msg" key
+    Serial.print("Set Result -> Status: ");
+    Serial.print(setResult.status);
+    Serial.print(" | Message: ");
+    Serial.print(setResult.message);
+    Serial.print(" | Data: ");
+    Serial.println(setResult.data);
 
-  delay(2000); // Wait for two seconds
+    delay(2000); // Wait for two seconds
 
-  // Get data (Get Data)
-  PxServ::Callback getResult = client.getData("msg"); // Get the value for the "msg" key
-  Serial.println("Get Result -> Status: " + String(getResult.status) + " | Message: " + String(getResult.message) + " | Data: " + String(getResult.data));
+    // Get data
+    PxServ::Callback getResult = client.getData("msg"); // Get the value for the "msg" key
+    Serial.print("Get Result -> Status: ");
+    Serial.print(getResult.status);
+    Serial.print(" | Message: ");
+    Serial.print(getResult.message);
+    Serial.print(" | Data: ");
+    Serial.println(getResult.data);
 
-  delay(2000); // Wait for two seconds
+    delay(2000); // Wait for two seconds
 
-  // Remove data (Remove Data)
-  PxServ::Callback removeResult = client.removeData("msg"); // Remove the "msg" key
-  Serial.println("Remove Result -> Status: " + String(removeResult.status) + " | Message: " + String(removeResult.message) + " | Data: " + String(removeResult.data));
+    // Remove data
+    PxServ::Callback removeResult = client.removeData("msg"); // Remove the "msg" key
+    Serial.print("Remove Result -> Status: ");
+    Serial.print(removeResult.status);
+    Serial.print(" | Message: ");
+    Serial.print(removeResult.message);
+    Serial.print(" | Data: ");
+    Serial.println(removeResult.data);
 
-  delay(2000); // Wait for two seconds
+    delay(2000); // Wait for two seconds
 }
 ```
