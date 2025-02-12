@@ -21,7 +21,7 @@ Bu örneği kullanmadan önce aşağıdaki kütüphanelerin Arduino IDE'ye yükl
 
 Wi-Fi bağlantısı ve PxServ API anahtarınızı aşağıdaki alanlara girmeniz gerekmektedir:
 
-```arduino
+```javascript
 #include <PxServ.h>
 
 // PxServ API Anahtarı (Proje API anahtarınızı buraya girin)
