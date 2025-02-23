@@ -20,6 +20,7 @@
 
 ## 🇺🇲 English <a href="#en" id="en"></a>
 
+* [Quick Start](en/hizli-baslangic.md)
 * [Arduino Library](en/arduino-library.md)
 * [JavaScript / TypeScript Library](en/javascript-typescript-library.md)
 * [Rust Library](en/rust-library.md)
