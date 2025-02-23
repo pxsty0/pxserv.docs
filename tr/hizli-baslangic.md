@@ -1,6 +1,5 @@
 ---
 icon: bolt
-hidden: true
 ---
 
 # Hızlı Başlangıç
