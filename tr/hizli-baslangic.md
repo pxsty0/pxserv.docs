@@ -28,15 +28,19 @@ PxServ, IoT sistemleri geliştirmek isteyen geliştiriciler ve kullanıcılar i�
 
     Örnek olarak, bu projede **Arduino platformunda ESP32 kullanacağımız için Arduino Kütüphanesi'ni tercih edeceğiz.**
 
-    Aşağıda, ESP32 ve DHT11 sıcaklık & nem sensörünü kullanarak PxServ'e veri gönderen bir örnek kod bulunmaktadır:&#x20;
-4.  **Verilerinizi PxServ ile Yönetin**
+    Aşağıda, ESP32 ve DHT11 sıcaklık & nem sensörünü kullanarak PxServ'e veri gönderen bir örnek kod bulunmaktadır:
+    ```cpp
+    example code
+    ```
+    Arduino kütüphanesinin detaylı kullanımını ve ek özellikleri keşfetmek için buraya tıklayın.
+5.  **Verilerinizi PxServ ile Yönetin**
 
     * PxServ'in yönetim panelinden AI destekli veri analizleri yapabilirsiniz.
     * İstatistikler sayfasında verilerinizi inceleyebilirsiniz.
     * Veritabanı sayfasından kaydedilen verileri görüntüleyebilir ve yönetebilirsiniz.
 
     <figure><img src="../.gitbook/assets/resim (2).png" alt=""><figcaption><p>PxServ Web Sayfası</p></figcaption></figure>
-5. **Verilerinize Her Yerden Erişim Sağlayın**\
+6. **Verilerinize Her Yerden Erişim Sağlayın**\
    Cihazınızın veya yazılımınızın verilerine aşağıdaki yöntemlerle erişebilir ve yönetebilirsiniz:
    * PxServ Yönetim Paneli
    * PxServ Mobil Uygulaması (çok yakında!)
