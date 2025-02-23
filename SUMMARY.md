@@ -4,6 +4,7 @@
 
 ## 🇹🇷 Türkçe <a href="#tr" id="tr"></a>
 
+* [Hızlı Başlangıç](tr/hizli-baslangic.md)
 * [Arduino Kütüphanesi](tr/arduino-kutuphanesi.md)
 * [JavaScript / TypeScript Kütüphanesi](tr/javascript-typescript-kutuphanesi.md)
 * [Rust Kütüphanesi](tr/rust-kutuphanesi.md)
@@ -19,6 +20,7 @@
 
 ## 🇺🇲 English <a href="#en" id="en"></a>
 
+* [Quick Start](en/quick-start.md)
 * [Arduino Library](en/arduino-library.md)
 * [JavaScript / TypeScript Library](en/javascript-typescript-library.md)
 * [Rust Library](en/rust-library.md)
