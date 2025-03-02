@@ -14,15 +14,16 @@ This endpoint allows saving data to the PxServ project database
 
 **Body**
 
-| Key     | Type             | Description |
-| ------- | ---------------- | ----------- |
-| `key`   | string \| number | Data key    |
-| `value` | string \| number | Data Value  |
+| Key     | Type   | Description |
+| ------- | ------ | ----------- |
+| `key`   | string | Data key    |
+| `value` | string | Data Value  |
 
 **Response**
 
 {% tabs %}
 {% tab title="200" %}
+
 ```json
 {
   "status": 200,
@@ -30,9 +31,11 @@ This endpoint allows saving data to the PxServ project database
   "data": {}
 }
 ```
+
 {% endtab %}
 
 {% tab title="Error" %}
+
 ```json
 {
   "status": 401,
@@ -40,5 +43,6 @@ This endpoint allows saving data to the PxServ project database
   "data": {}
 }
 ```
+
 {% endtab %}
 {% endtabs %}

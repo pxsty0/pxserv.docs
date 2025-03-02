@@ -14,10 +14,10 @@ Bu endpoint, PxServ proje veritabanına veri kaydetmeyi sağlar
 
 **Body**
 
-| Anahtar | Tip              | Açıklama      |
-| ------- | ---------------- | ------------- |
-| `key`   | string \| number | Veri anahtarı |
-| `value` | string \| number | Veri Değeri   |
+| Anahtar | Tip    | Açıklama      |
+| ------- | ------ | ------------- |
+| `key`   | string | Veri anahtarı |
+| `value` | string | Veri Değeri   |
 
 **Response**
 

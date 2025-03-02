@@ -14,9 +14,9 @@ Bu endpoint, PxServ proje veritabanına veri kaldırmayı sağlar
 
 **Body**
 
-| Anahtar | Tip              | Açıklama      |
-| ------- | ---------------- | ------------- |
-| `key`   | string \| number | Veri anahtarı |
+| Anahtar | Tip    | Açıklama      |
+| ------- | ------ | ------------- |
+| `key`   | string | Veri anahtarı |
 
 **Response**
 

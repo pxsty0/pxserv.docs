@@ -14,14 +14,15 @@ This endpoint allows reading data into the PxServ project database
 
 **Body**
 
-| Key   | Type             | Description |
-| ----- | ---------------- | ----------- |
-| `key` | string \| number | Data key    |
+| Key   | Type   | Description |
+| ----- | ------ | ----------- |
+| `key` | string | Data key    |
 
 **Response**
 
 {% tabs %}
 {% tab title="200" %}
+
 ```json
 {
   "status": 200,
@@ -31,9 +32,11 @@ This endpoint allows reading data into the PxServ project database
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Error" %}
+
 ```json
 {
   “status": 401,
@@ -41,5 +44,6 @@ This endpoint allows reading data into the PxServ project database
   “data": {}
 }
 ```
+
 {% endtab %}
 {% endtabs %}
