@@ -2,7 +2,7 @@
 
 <mark style="color:green;">`POST`</mark> `https://api.pxserv.net/database/toggleData`
 
-Bu endpoint, PxServ proje veritabanındaki veriyi geçiş 0 ile 1 arasında geçiş yaptırmanız olanak sağlar
+Bu endpoint, PxServ proje veritabanındaki veriyi 0 ile 1 arasında geçiş yaptırmanıza olanak sağlar
 
 **Headers**
 
