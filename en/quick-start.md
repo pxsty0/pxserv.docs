@@ -47,7 +47,7 @@ PxServ is a platform that provides comprehensive software and hardware support f
 5. **Access Your Data from Anywhere**\
    Access and manage your device or software data through the following methods:
    * PxServ Management Panel
-   * PxServ Mobile Application (coming soon!)
+   * [PxServ Mobile Application](https://play.google.com/store/apps/details?id=net.pxserv.mobile)
    * Custom management panels, web pages, or mobile applications developed using PxServ
 
 With PxServ, you can easily develop, manage, and optimize your IoT projects. Don't forget to check out our official documentation for more information!

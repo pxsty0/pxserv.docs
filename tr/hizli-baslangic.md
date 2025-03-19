@@ -47,7 +47,7 @@ PxServ, IoT sistemleri geliştirmek isteyen geliştiriciler ve kullanıcılar i�
 5. **Verilerinize Her Yerden Erişim Sağlayın**\
    Cihazınızın veya yazılımınızın verilerine aşağıdaki yöntemlerle erişebilir ve yönetebilirsiniz:
    * PxServ Yönetim Paneli
-   * PxServ Mobil Uygulaması (çok yakında!)
+   * [PxServ Mobil Uygulaması](https://play.google.com/store/apps/details?id=net.pxserv.mobile)
    * PxServ kullanarak geliştirilen / geliştireceğiniz özel yönetim panelleri, web sayfaları veya mobil uygulamalar
 
 PxServ ile IoT projelerinizi kolayca geliştirebilir, yönetebilir ve optimize edebilirsiniz. Daha fazla bilgi için resmi dökümantasyonumuza göz atmayı unutmayın!
