@@ -21,7 +21,7 @@ Before using this example, make sure the following libraries are installed in th
 
 You need to enter your Wi-Fi connection details and PxServ API key in the following fields:
 
-```csharp
+```cpp
 #include <PxServ.h>
 
 // PxServ API Key (Enter your project API key here)

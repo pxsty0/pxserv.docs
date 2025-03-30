@@ -1,6 +1,6 @@
 # All Data Fetching
 
-<mark style="color:green;">`POST`</mark> `https://api.pxserv.net/database/getAll`
+<mark style="color:green;">`GET`</mark> `https://api.pxserv.net/database/getAll`
 
 This endpoint allows to read all data into the PxServ project database
 

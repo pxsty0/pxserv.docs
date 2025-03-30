@@ -1,6 +1,6 @@
-# REST API Tüm Verileri Okuma
+# Tüm Verileri Okuma
 
-<mark style="color:green;">`POST`</mark> `https://api.pxserv.net/database/getAll`
+<mark style="color:green;">`GET`</mark> `https://api.pxserv.net/database/getAll`
 
 Bu endpoint, PxServ proje veritabanına tüm verileri okumayı sağlar
 
@@ -14,14 +14,10 @@ Bu endpoint, PxServ proje veritabanına tüm verileri okumayı sağlar
 
 **Body**
 
-| Anahtar | Tip | Açıklama |
-| ------- | --- | -------- |
-
 **Response**
 
 {% tabs %}
 {% tab title="200" %}
-
 ```json
 {
   "status": 200,
@@ -32,11 +28,9 @@ Bu endpoint, PxServ proje veritabanına tüm verileri okumayı sağlar
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Error" %}
-
 ```json
 {
   "status": 401,
@@ -44,6 +38,5 @@ Bu endpoint, PxServ proje veritabanına tüm verileri okumayı sağlar
   "data": {}
 }
 ```
-
 {% endtab %}
 {% endtabs %}
