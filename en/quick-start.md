@@ -32,7 +32,48 @@ PxServ is a platform that provides comprehensive software and hardware support f
 
 
     ```cpp
-    example code
+    #include <PxServ.h>
+    #include "DHT.h"
+
+    #define DHT_PIN 4       // Pin to which DHT11 Sensor is connected
+    #define DHT_TYPE DHT11  // Sensor type DHT11 by default
+
+    // PxServ API Key (Enter your project API key here)
+    PxServ client("pxserv_api_key");
+    DHT dht(DHT_PIN, DHT_TYPE);
+
+    void setup() {
+      // Wi-Fi settings (Wi-Fi SSID and Password)
+      Serial.begin(115200);
+      PxServ::connectWifi("wifi_ssid", "wifi_sifre");
+      dht.begin();
+    }
+
+    void loop() {
+      float temperature = dht.readTemperature();
+      float humidity = dht.readHumidity();
+
+      if (isnan(temperature) || isnan(humidity)) {
+        Serial.println("Failed to read data from DHT11 sensor!");
+        return;
+      }
+
+      Serial.print("Temperature: ");
+      Serial.print(temperature);
+      Serial.println("°C");
+      Serial.print("Humidity: ");
+      Serial.print(humidity);
+      Serial.println("%");
+
+      // Saving data to PxServ
+      PxServ::Callback tempResult = client.setData("temperature", String(temperature));
+      PxServ::Callback humResult = client.setData("humidity", String(humidity));
+
+      Serial.print("Temperature Saving Status: ");
+      Serial.println(tempResult.status);
+      Serial.print("Humidity Saving Status: ");
+      Serial.println(humResult.status);
+    }
     ```
 
     \

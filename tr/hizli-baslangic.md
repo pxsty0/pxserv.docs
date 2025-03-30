@@ -32,7 +32,48 @@ PxServ, IoT sistemleri geliştirmek isteyen geliştiriciler ve kullanıcılar i�
 
 
     ```cpp
-    example code
+    #include <PxServ.h>
+    #include "DHT.h"
+
+    #define DHT_PIN 4       // DHT11 Sensörünün bağlı olduğu pin
+    #define DHT_TYPE DHT11  // Sensör tipi varsayılan olarak DHT11
+
+    // PxServ API Anahtarı (Proje API anahtarınızı buraya girin)
+    PxServ client("pxserv_api_key");
+    DHT dht(DHT_PIN, DHT_TYPE);
+
+    void setup() {
+      // Wi-Fi ayarları (Wi-Fi SSID ve Şifre)
+      Serial.begin(115200);
+      PxServ::connectWifi("wifi_ssid", "wifi_sifre");
+      dht.begin();
+    }
+
+    void loop() {
+      float temperature = dht.readTemperature();
+      float humidity = dht.readHumidity();
+
+      if (isnan(temperature) || isnan(humidity)) {
+        Serial.println("DHT11 sensöründen veri okunamadı!");
+        return;
+      }
+
+      Serial.print("Sıcaklık: ");
+      Serial.print(temperature);
+      Serial.println("°C");
+      Serial.print("Nem: ");
+      Serial.print(humidity);
+      Serial.println("%");
+
+      // Verileri PxServ'e kaydetme
+      PxServ::Callback tempResult = client.setData("temperature", String(temperature));
+      PxServ::Callback humResult = client.setData("humidity", String(humidity));
+
+      Serial.print("Sıcaklık Kaydetme Durumu: ");
+      Serial.println(tempResult.status);
+      Serial.print("Nem Kaydetme Durumu: ");
+      Serial.println(humResult.status);
+    }
     ```
 
     \
