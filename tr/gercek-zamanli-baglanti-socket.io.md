@@ -1,5 +1,4 @@
 ---
-hidden: true
 icon: tower-cell
 ---
 
@@ -56,7 +55,7 @@ Yeni veri alındı:
 { key: "sıcaklık", lastUpdate: "2025-03-31T17:40:19.653Z", icon: "hum", value: "64.11" }
 ```
 
----
+***
 
 ### Veri Silme Olayı
 
@@ -79,7 +78,7 @@ Bir veri kaldırıldı:
 { key: "sıcaklık" }
 ```
 
----
+***
 
 ## Bağlantıyı Sonlandırma
 
@@ -100,9 +99,9 @@ Bağlantı sonlandırıldı.
 
 **Socket.IO**, farklı dillerde de desteklenmektedir. Aşağıdaki dillerde **aynı event yapısı** ve **API anahtarı ile kimlik doğrulama** kullanarak bağlantı kurulabilir:
 
-- [**JavaScript / TypeScript**](https://socket.io/docs/v4/client-initialization/)
-- [**Python**](https://python-socketio.readthedocs.io/en/latest/client.html)
-- [**Rust**](https://github.com/1c3t3a/rust-socketio)
-- [**Go**](https://github.com/googollee/go-socket.io)
+* [**JavaScript / TypeScript**](https://socket.io/docs/v4/client-initialization/)
+* [**Python**](https://python-socketio.readthedocs.io/en/latest/client.html)
+* [**Rust**](https://github.com/1c3t3a/rust-socketio)
+* [**Go**](https://github.com/googollee/go-socket.io)
 
 Her dil için uygun Socket.IO istemci kütüphanesi kullanılarak benzer şekilde bağlanılabilir.

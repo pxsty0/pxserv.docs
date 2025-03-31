@@ -33,7 +33,7 @@
     * [Data Fetching](en/rest-api/database/data-fetching.md)
     * [All Data Fetching](en/rest-api/database/all-data-fetching.md)
     * [Data Removing](en/rest-api/database/data-removing.md)
-* [Realtime Connection (Socket.IO)](en/realtime-connection-socket.io.md)
+* [Real-Time Connection (Socket.IO)](en/realtime-connection-socket.io.md)
 * [Example Projects](en/example-projects/README.md)
   * [Home Security System](en/example-projects/home-security-system.md)
   * [Smart Temperature Monitor:](en/example-projects/smart-temperature-monitor.md)
