@@ -15,12 +15,15 @@ Bu örnek kod, PxServ projesi ile veri tabanı işlemleri yapmanızı sağlar. A
 
 Bu örneği kullanmadan önce aşağıdaki kütüphanelerin Arduino IDE'ye yüklü olduğundan emin olun:
 
-- **WiFi.h**: Wi-Fi bağlantısı sağlamak için.
 - **PxServ.h**: PxServ API'si ile iletişim kurmak için.
 
 ## Bağlantı Ayarları
 
-Wi-Fi bağlantısı ve PxServ API anahtarınızı aşağıdaki alanlara girmeniz gerekmektedir:
+Wi-Fi bağlantısı bilgilerini ve PxServ API anahtarınızı kullanım başlığı altındaki koddaki gerekli alanlara girmeniz gerekmektedir.
+
+## Kullanım
+
+Aşağıdaki örnek kodda, PxServ API kullanılarak veritabanı işlemlerinin nasıl gerçekleştirileceği yorum satırlarıyla birlikte adım adım anlatılmıştır; her işlemin işlevi ve nasıl çalıştığı kod içinde açıklanmıştır.
 
 ```cpp
 #include <PxServ.h>

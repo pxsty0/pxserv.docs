@@ -15,12 +15,15 @@ This example code allows you to perform database operations with the PxServ proj
 
 Before using this example, make sure the following libraries are installed in the Arduino IDE:
 
-- **WiFi.h**: To establish a Wi-Fi connection.
 - **PxServ.h**: To communicate with the PxServ API.
 
 ## Connection Settings
 
-You need to enter your Wi-Fi connection details and PxServ API key in the following fields:
+You need to enter the Wi-Fi connection information and your PxServ API key in the required fields in the code under the usage heading.
+
+## Usage
+
+In the following example code, the database operations using the PxServ API are explained step by step with comments; the functionality of each operation and how it works is described within the code.
 
 ```cpp
 #include <PxServ.h>
