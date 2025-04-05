@@ -7,6 +7,7 @@ icon: gear-code
 This example code allows you to perform database operations with the PxServ project. You can perform the following operations:
 
 - Save data to the database
+- Toggle data between 0 and 1 in the database
 - Read data from the database
 - Delete data from the database
 
