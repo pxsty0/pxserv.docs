@@ -6,15 +6,15 @@ icon: js
 
 This example code allows you to perform database operations with the PxServ project. The following operations are supported:
 
-* Save data to the database
-* Read data from the database
-* Delete data from the database
+- Save data to the database
+- Read data from the database
+- Delete data from the database
 
 ## Requirements
 
 Before using this example, ensure the following libraries are installed:
 
-* **pxserv**: Used to communicate with the PxServ API.
+- **pxserv**: Used to communicate with the PxServ API.
 
 ## Installation
 
@@ -31,44 +31,58 @@ Enter your PxServ API key and optionally the base URL in the following fields:
 ### JavaScript
 
 ```javascript
+// Include the PxServ library in the project
 const PxServ = require("pxserv").default;
 
-// Configuration settings
-const config = {
-  apiKey: "API_KEY",
-};
+// Create a new PxServ Instance by entering your API key
+const pxServ = new PxServ({
+  apiKey: "API_KEY", // Write your own API key here
+});
 
-// Create an instance of PxServ
-const pxServ = new PxServ(config);
-
-// Get temperature and humidity data from the IoT device and save it to the server
-const temperature = "22.5°C";
-const humidity = "45%";
+// Representative data
+const temp = "24.3°C"; // Environment temperature
+const hum = "58%"; // Humidity
+const light = "1"; // Lighting on (1 = on, 0 = off)
 
 (async () => {
   try {
-    // Save temperature and humidity data to the server
-    await pxServ.setData("temperature", temperature);
-    await pxServ.setData("humidity", humidity);
+    // Saving data
+    await pxServ.setData("temp", temp);
+    await pxServ.setData("hum", hum);
+    await pxServ.setData("light", light);
+    console.log(
+      "Temperature, humidity and lighting conditions were recorded in PxServ."
+    );
 
-    // Retrieve temperature and humidity data from the server
-    const currentTemperature = await pxServ.getData("temperature");
-    const currentHumidity = await pxServ.getData("humidity");
+    // Get data
+    const currentTemp = await pxServ.getData("temp");
+    const currentHum = await pxServ.getData("hum");
+    const currentLight = await pxServ.getData("light");
 
-    console.log(`Current Temperature: ${currentTemperature}`); // 'Current Temperature: 22.5°C'
-    console.log(`Current Humidity: ${currentHumidity}`); // 'Current Humidity: 45%'
+    console.log(`Temperature: ${currentTemp}`);
+    console.log(`Humidity: ${currentHum}`);
+    console.log(`Light: ${currentLight === "1" ? "On" : "Off"}`);
 
-    // List all data
+    // Toggle data
+    await pxServ.toggleData("light");
+    console.log("Lighting status has been changed.");
+    const toggledLight = await pxServ.getData("light");
+    console.log(`New lighting status: ${toggledLight === "1" ? "On" : "Off"}`);
+
+    // Get all data
     const allData = await pxServ.getAll();
-    console.log(allData); // {'temperature': '22.5°C', 'humidity': '45%'}
+    console.log("All Data:");
+    console.log(allData);
 
-    // Delete old temperature data
-    await pxServ.removeData("temperature");
+    // Remove data
+    await pxServ.removeData("temp");
+    await pxServ.removeData("hum");
+    await pxServ.removeData("light");
+    console.log("Test data has been successfully removed.");
   } catch (error) {
-    console.error("An error occurred:", error);
+    console.error("An error has occurred:", error);
   }
 })();
-
 ```
 
 ### TypeScript
@@ -76,42 +90,55 @@ const humidity = "45%";
 ```typescript
 import PxServ from "pxserv";
 
-// Configuration settings
-const config = {
-  apiKey: "API_KEY",
-};
+// Create a new PxServ Instance by entering your API key
+const pxServ = new PxServ({
+  apiKey: "API_KEY", // Write your own API key here
+});
 
-// Create an instance of PxServ
-const pxServ = new PxServ(config);
-
-// Get temperature and humidity data from the IoT device and save it to the server
-const temperature = "22.5°C";
-const humidity = "45%";
+// Representative data
+const temp = "24.3°C"; // Environment temperature
+const hum = "58%"; // Humidity
+const light = "1"; // Lighting on (1 = on, 0 = off)
 
 (async () => {
   try {
-    // Save temperature and humidity data to the server
-    await pxServ.setData("temperature", temperature);
-    await pxServ.setData("humidity", humidity);
+    // Saving data
+    await pxServ.setData("temp", temp);
+    await pxServ.setData("hum", hum);
+    await pxServ.setData("light", light);
+    console.log(
+      "Temperature, humidity and lighting conditions were recorded in PxServ."
+    );
 
-    // Retrieve temperature and humidity data from the server
-    const currentTemperature = await pxServ.getData("temperature");
-    const currentHumidity = await pxServ.getData("humidity");
+    // Get data
+    const currentTemp = await pxServ.getData("temp");
+    const currentHum = await pxServ.getData("hum");
+    const currentLight = await pxServ.getData("light");
 
-    console.log(`Current Temperature: ${currentTemperature}`); // 'Current Temperature: 22.5°C'
-    console.log(`Current Humidity: ${currentHumidity}`); // 'Current Humidity: 45%'
+    console.log(`Temperature: ${currentTemp}`);
+    console.log(`Humidity: ${currentHum}`);
+    console.log(`Light: ${currentLight === "1" ? "On" : "Off"}`);
 
-    // List all data
+    // Toggle data
+    await pxServ.toggleData("light");
+    console.log("Lighting status has been changed.");
+    const toggledLight = await pxServ.getData("light");
+    console.log(`New lighting status: ${toggledLight === "1" ? "On" : "Off"}`);
+
+    // Get all data
     const allData = await pxServ.getAll();
-    console.log(allData); // {'temperature': '22.5°C', 'humidity': '45%'}
+    console.log("All Data:");
+    console.log(allData);
 
-    // Delete old temperature data
-    await pxServ.removeData("temperature");
+    // Remove data
+    await pxServ.removeData("temp");
+    await pxServ.removeData("hum");
+    await pxServ.removeData("light");
+    console.log("Test data has been successfully removed.");
   } catch (error) {
-    console.error("An error occurred:", error);
+    console.error("An error has occurred:", error);
   }
 })();
-
 ```
 
 ## Usage
@@ -123,9 +150,31 @@ Add this code to your project and run it after installing the required libraries
 Below are example outputs you may see in the console:
 
 ```
-Current Temperature: 22.5°C
-Current Humidity: 45%
-{'temperature': '22.5°C', 'humidity': '45%'}
+Temperature, humidity and lighting conditions were recorded in PxServ.
+Temperature: 24.3°C
+Humidity: 58%
+Light: On
+Lighting status has been changed.
+New lighting status: Off
+All Data:
+{
+  temp: {
+    lastUpdate: '2025-04-06T09:08:59.570Z',
+    icon: 'defaultIcon',
+    value: '24.3°C'
+  },
+  hum: {
+    lastUpdate: '2025-04-06T09:08:59.649Z',
+    icon: 'defaultIcon',
+    value: '58%'
+  },
+  light: {
+    lastUpdate: '2025-04-06T09:08:59.997Z',
+    icon: 'defaultIcon',
+    value: '0'
+  }
+}
+Test data has been successfully removed.
 ```
 
 These outputs indicate that the data has been successfully added, read, and deleted.
