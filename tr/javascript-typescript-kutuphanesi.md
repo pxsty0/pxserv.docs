@@ -7,6 +7,7 @@ icon: js
 Bu örnek kod, PxServ projesi ile veri tabanı işlemleri yapmanızı sağlar. Aşağıdaki işlemleri gerçekleştirebilirsiniz:
 
 - Veritabanına veri kaydetme
+- Veritabanınada veriyi 0 ile 1 arasında geçiş yaptırma
 - Veritabanından veri okuma
 - Veritabanından veri silme
 

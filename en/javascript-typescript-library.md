@@ -7,6 +7,7 @@ icon: js
 This example code allows you to perform database operations with the PxServ project. The following operations are supported:
 
 - Save data to the database
+- Toggle data between 0 and 1 in the database
 - Read data from the database
 - Delete data from the database
 
