@@ -22,26 +22,38 @@ Aşağıda, PxServ kütüphanesinin nasıl kullanılacağını gösteren bir ör
 use pxserv::PxServ;
 
 fn main() {
+    // API anahtarı ile PxServ class'ının bir instance'ını oluşturuyoruz
     let client = PxServ::new("API_KEY");
 
-    // Veri kaydetme
-    let set_response = client.setdata("temperature", "22.5°C");
+    // Veri Kaydetme
+    // "temp" anahtarı ile sıcaklık verisini PxServ'e kaydediyoruz
+    let set_response = client.setdata("temp", "22.5°C");
     println!(
-        "Durum: {}, Mesaj: {}",
+        "Veri Kaydetme -> Durum: {}, Mesaj: {}",
         set_response.status, set_response.message
     );
 
-    // Veri çekme
-    let get_response = client.getdata("temperature");
+    // Veri Geçişi
+    // "light" anahtarını 0 ile 1 arasında geçiş yapıyoruz (Aydınlatma durumu)
+    let toggle_response = client.toggledata("light");
     println!(
-        "Durum: {}, Mesaj: {}, Veri : {:?}",
+        "Veri Geçiş -> Durum: {}, Mesaj: {}",
+        toggle_response.status, toggle_response.message
+    );
+
+    // Veri Okuma
+    // "temp" anahtarındaki sıcaklık verisini PxServ den okuyoruz
+    let get_response = client.getdata("temp");
+    println!(
+        "Veri Okuma -> Durum: {}, Mesaj: {}, Veri: {:?}",
         get_response.status, get_response.message, get_response.data
     );
 
-    // Veri silme
-    let remove_response = client.removedata("temperature");
+    // Veri Silme
+    // "temp" anahtarındaki sıcaklık verisini PxServ den siliyoruz
+    let remove_response = client.removedata("temp");
     println!(
-        "Durum: {}, Mesaj: {}",
+        "Veri Silme -> Durum: {}, Mesaj: {}",
         remove_response.status, remove_response.message
     );
 }
@@ -50,7 +62,8 @@ fn main() {
 Örnek Çıktılar Aşağıda, konsolda görebileceğiniz örnek çıktılar bulunmaktadır
 
 ```
-Durum: 200, Mesaj: OK
-Durum: 200, Mesaj: OK, Veri : Some("22.5°C")
-Durum: 200, Mesaj: OK
+Veri Kaydetme -> Durum: 200, Mesaj: OK
+Veri Geçiş -> Durum: 200, Mesaj: OK
+Veri Okuma -> Durum: 200, Mesaj: OK, Veri: Some("22.5°C")
+Veri Silme -> Durum: 200, Mesaj: OK
 ```
