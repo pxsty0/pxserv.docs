@@ -84,7 +84,7 @@ PxServ, IoT sistemleri geliştirmek isteyen geliştiriciler ve kullanıcılar i�
     * İstatistikler sayfasında verilerinizi inceleyebilirsiniz.
     * Veritabanı sayfasından kaydedilen verileri görüntüleyebilir ve yönetebilirsiniz.
 
-    <figure><img src="../.gitbook/assets/resim (2).png" alt=""><figcaption><p>PxServ Web Sayfası</p></figcaption></figure>
+    <div data-full-width="true"><figure><img src="../.gitbook/assets/resim (2).png" alt="" width="563"><figcaption><p>PxServ Websitesi</p></figcaption></figure> <figure><img src="../.gitbook/assets/resim (4).png" alt="" width="188"><figcaption><p>PxServ Mobil Uygulaması</p></figcaption></figure></div>
 5. **Verilerinize Her Yerden Erişim Sağlayın**\
    Cihazınızın veya yazılımınızın verilerine aşağıdaki yöntemlerle erişebilir ve yönetebilirsiniz:
    * PxServ Yönetim Paneli

@@ -84,7 +84,7 @@ PxServ is a platform that provides comprehensive software and hardware support f
     * Examine your data on the statistics page.
     * View and manage stored data from the database page.
 
-    <figure><img src="../.gitbook/assets/resim (3).png" alt=""><figcaption><p>PxServ Website</p></figcaption></figure>
+    <div><figure><img src="../.gitbook/assets/resim (5).png" alt="" width="563"><figcaption><p>PxServ Website</p></figcaption></figure> <figure><img src="../.gitbook/assets/resim (7).png" alt="" width="188"><figcaption><p>PxServ Mobile App</p></figcaption></figure></div>
 5. **Access Your Data from Anywhere**\
    Access and manage your device or software data through the following methods:
    * PxServ Management Panel
