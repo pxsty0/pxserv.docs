@@ -4,148 +4,129 @@ icon: js
 
 # JavaScript / TypeScript Library
 
-This example code allows you to perform database operations with the PxServ project. The following operations are supported:
+The PxServ npm package provides a typed client for interacting with the PxServ API from Node.js or browser environments.
+
+**Supported operations:**
 
 * Save data to the database
-* Toggle data between 0 and 1 in the database
+* Toggle a value between `0` and `1`
 * Read data from the database
+* Fetch all stored data
 * Delete data from the database
 
-## Requirements
-
-Before using this example, ensure the following libraries are installed:
-
-* **pxserv**: Used to communicate with the PxServ API.
-
 ## Installation
-
-You can install the PxServ library using npm:
 
 ```sh
 npm install pxserv
 ```
 
-## Connection Settings
-
-Enter your PxServ API key and optionally the base URL in the following fields:
-
-### JavaScript
-
-```javascript
-// Include the PxServ library in the project
-const PxServ = require("pxserv").default;
-
-// Create a new PxServ Instance by entering your API key
-const pxServ = new PxServ({
-  apiKey: "API_KEY", // Write your own API key here
-});
-
-(async () => {
-  try {
-    // Data Saving
-    const setTempResult = await pxServ.setData("temp", "24.3°C");
-    console.log("Temperature Save Result:", setTempResult);
-
-    // Get data
-    const getTempResult = await pxServ.getData("temp");
-    console.log("Temperature Reading Result:", getTempResult);
-
-    // Toggle data
-    const toggleLightResult = await pxServ.toggleData("light");
-    console.log("Toggle Result:", toggleLightResult);
-
-    // Get all data
-    const tumVeriler = await pxServ.getAll();
-    console.log("All Data:", tumVeriler);
-
-    // Remove data
-    await pxServ.removeData("temp");
-    await pxServ.removeData("light");
-    console.log("Data removed.");
-  } catch (err) {
-    console.error("Error occurred:", err);
-  }
-})();
-
-```
-
-### TypeScript
-
-```typescript
-// Include the PxServ library in the project
-import PxServ from "pxserv";
-
-// Create a new PxServ Instance by entering your API key
-const pxServ = new PxServ({
-  apiKey: "API_KEY", // Write your own API key here
-});
-
-(async () => {
-  try {
-    // Data Saving
-    const setTempResult = await pxServ.setData("temp", "24.3°C");
-    console.log("Temperature Save Result:", setTempResult);
-
-    // Get data
-    const getTempResult = await pxServ.getData("temp");
-    console.log("Temperature Reading Result:", getTempResult);
-
-    // Toggle data
-    const toggleLightResult = await pxServ.toggleData("light");
-    console.log("Toggle Result:", toggleLightResult);
-
-    // Get all data
-    const tumVeriler = await pxServ.getAll();
-    console.log("All Data:", tumVeriler);
-
-    // Remove data
-    await pxServ.removeData("temp");
-    await pxServ.removeData("light");
-    console.log("Data removed.");
-  } catch (err) {
-    console.error("Error occurred:", err);
-  }
-})();
-
-```
-
 ## Usage
 
-Add this code to your project and run it after installing the required libraries. The code will perform data addition, reading, and deletion operations with the PxServ API.
-
-### Sample Outputs
-
-Below are example outputs you may see in the console:
-
+{% tabs %}
+{% tab title="JavaScript" %}
 ```javascript
-Temperature Save Result: { status: 200, message: 'OK', data: {} }
-Temperature Reading Result: {
-  status: 200,
-  message: 'OK',
-  data: {
-    lastUpdate: '2025-05-23T20:28:00.581Z',
-    icon: 'defaultIcon',
-    value: '24.3°C'
+const PxServ = require("pxserv").default;
+
+const pxServ = new PxServ({
+  apiKey: "your_api_key",
+});
+
+(async () => {
+  try {
+    // Save data
+    const setResult = await pxServ.setData("temp", "24.3°C");
+    console.log("Set:", setResult);
+
+    // Read data
+    const getResult = await pxServ.getData("temp");
+    console.log("Get:", getResult);
+
+    // Toggle data
+    const toggleResult = await pxServ.toggleData("light");
+    console.log("Toggle:", toggleResult);
+
+    // Fetch all data
+    const allData = await pxServ.getAll();
+    console.log("All:", allData);
+
+    // Remove data
+    await pxServ.removeData("temp");
+    await pxServ.removeData("light");
+    console.log("Removed.");
+  } catch (err) {
+    console.error("Error:", err);
+  }
+})();
+```
+{% endtab %}
+
+{% tab title="TypeScript" %}
+```typescript
+import PxServ from "pxserv";
+
+const pxServ = new PxServ({
+  apiKey: "your_api_key",
+});
+
+(async () => {
+  try {
+    // Save data
+    const setResult = await pxServ.setData("temp", "24.3°C");
+    console.log("Set:", setResult);
+
+    // Read data
+    const getResult = await pxServ.getData("temp");
+    console.log("Get:", getResult);
+
+    // Toggle data
+    const toggleResult = await pxServ.toggleData("light");
+    console.log("Toggle:", toggleResult);
+
+    // Fetch all data
+    const allData = await pxServ.getAll();
+    console.log("All:", allData);
+
+    // Remove data
+    await pxServ.removeData("temp");
+    await pxServ.removeData("light");
+    console.log("Removed.");
+  } catch (err) {
+    console.error("Error:", err);
+  }
+})();
+```
+{% endtab %}
+{% endtabs %}
+
+## Sample Output
+
+```json
+Set: { "status": 200, "message": "OK", "data": {} }
+Get: {
+  "status": 200,
+  "message": "OK",
+  "data": {
+    "lastUpdate": "2025-05-23T20:28:00.581Z",
+    "icon": "defaultIcon",
+    "value": "24.3°C"
   }
 }
-Toggle Result: { status: 200, message: 'OK', data: {} }
-All Data: {
-  status: 200,
-  message: 'OK',
-  data: {
-    temp: {
-      lastUpdate: '2025-05-23T20:28:00.581Z',
-      icon: 'defaultIcon',
-      value: '24.3°C'
+Toggle: { "status": 200, "message": "OK", "data": {} }
+All: {
+  "status": 200,
+  "message": "OK",
+  "data": {
+    "temp": {
+      "lastUpdate": "2025-05-23T20:28:00.581Z",
+      "icon": "defaultIcon",
+      "value": "24.3°C"
     },
-    light: {
-      lastUpdate: '2025-05-23T20:28:00.714Z',
-      icon: 'defaultIcon',
-      value: '1'
+    "light": {
+      "lastUpdate": "2025-05-23T20:28:00.714Z",
+      "icon": "defaultIcon",
+      "value": "1"
     }
   }
 }
-Data removed.
+Removed.
 ```
-
-These outputs indicate that the data has been successfully added, read, and deleted.

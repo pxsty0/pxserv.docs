@@ -2,21 +2,21 @@
 
 <mark style="color:green;">`POST`</mark> `https://api.pxserv.net/database/toggleData`
 
-This endpoint allows you to toggle the data in the PxServ project database between transition 0 and 1
+Toggle the value of a key between `0` and `1` in the project database.
 
 **Headers**
 
-| Key             | Value              |
-| --------------- | ------------------ |
-| Content-Type    | `application/json` |
-| apikey          | `Project API Key`  |
-| Accept-Language | `tr` \| `en`       |
+| Key | Value |
+| --- | ----- |
+| `Content-Type` | `application/json` |
+| `apikey` | Your project API key |
+| `Accept-Language` | `en` \| `tr` |
 
 **Body**
 
-| Key   | Type   | Description |
-| ----- | ------ | ----------- |
-| `key` | string | Data key    |
+| Key | Type | Description |
+| --- | ---- | ----------- |
+| `key` | string | Data key |
 
 **Response**
 

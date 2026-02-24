@@ -1,5 +1,5 @@
-# PxServ Docs / Dokümantasyonu
+# PxServ Documentation
 
-🇹🇷 **TR** : Bu dokümantasyon, PxServ API'lerinin ve kütüphanelerinin nasıl kullanılacağını ve bu sistemlerle nasıl iletişim kurulacağını açıklamaktadır. Amacımız, PxServ'in sunduğu hizmetleri en verimli şekilde kullanabilmeniz için ihtiyaç duyduğunuz tüm bilgileri sağlamaktır.
+🇺🇸 **EN** — This documentation covers the PxServ APIs, client libraries, and real-time connection layer. Use it to integrate PxServ into any software or hardware project.
 
-🇺🇸 **EN** : This documentation explains how to use the PxServ APIs and libraries and how to communicate with these systems. Our goal is to provide you with all the information you need to make the most efficient use of PxServ's services.
+🇹🇷 **TR** — Bu dokümantasyon, PxServ API'lerini, istemci kütüphanelerini ve gerçek zamanlı bağlantı katmanını kapsamaktadır. PxServ'i herhangi bir yazılım veya donanım projesine entegre etmek için kullanın.

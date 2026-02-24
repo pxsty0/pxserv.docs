@@ -1,29 +1,28 @@
-# REST API Veri Kaydetme
+# Veri Kaydetme
 
 <mark style="color:green;">`POST`</mark> `https://api.pxserv.net/database/setData`
 
-Bu endpoint, PxServ proje veritabanına veri kaydetmeyi sağlar
+Proje veritabanına bir anahtar-değer çifti kaydeder veya günceller.
 
 **Headers**
 
-| Anahtar         | Değer              |
-| --------------- | ------------------ |
-| Content-Type    | `application/json` |
-| apikey          | `Proje API Keyi`   |
-| Accept-Language | `tr` \| `en`       |
+| Anahtar | Değer |
+| ------- | ----- |
+| `Content-Type` | `application/json` |
+| `apikey` | Proje API anahtarınız |
+| `Accept-Language` | `tr` \| `en` |
 
 **Body**
 
-| Anahtar | Tip    | Açıklama      |
-| ------- | ------ | ------------- |
-| `key`   | string | Veri anahtarı |
-| `value` | string | Veri Değeri   |
+| Anahtar | Tip | Açıklama |
+| ------- | --- | -------- |
+| `key` | string | Veri anahtarı |
+| `value` | string | Veri değeri |
 
 **Response**
 
 {% tabs %}
 {% tab title="200" %}
-
 ```json
 {
   "status": 200,
@@ -31,11 +30,9 @@ Bu endpoint, PxServ proje veritabanına veri kaydetmeyi sağlar
   "data": {}
 }
 ```
-
 {% endtab %}
 
-{% tab title="Error" %}
-
+{% tab title="Hata" %}
 ```json
 {
   "status": 401,
@@ -43,6 +40,5 @@ Bu endpoint, PxServ proje veritabanına veri kaydetmeyi sağlar
   "data": {}
 }
 ```
-
 {% endtab %}
 {% endtabs %}

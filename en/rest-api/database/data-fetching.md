@@ -2,27 +2,26 @@
 
 <mark style="color:green;">`POST`</mark> `https://api.pxserv.net/database/getData`
 
-This endpoint allows reading data into the PxServ project database
+Fetch the value of a single key from the project database.
 
 **Headers**
 
-| Key             | Value              |
-| --------------- | ------------------ |
-| Content-Type    | `application/json` |
-| apikey          | `Project API Key`  |
-| Accept-Language | `tr` \| `en`       |
+| Key | Value |
+| --- | ----- |
+| `Content-Type` | `application/json` |
+| `apikey` | Your project API key |
+| `Accept-Language` | `en` \| `tr` |
 
 **Body**
 
-| Key   | Type   | Description |
-| ----- | ------ | ----------- |
-| `key` | string | Data key    |
+| Key | Type | Description |
+| --- | ---- | ----------- |
+| `key` | string | Data key |
 
 **Response**
 
 {% tabs %}
 {% tab title="200" %}
-
 ```json
 {
   "status": 200,
@@ -32,18 +31,15 @@ This endpoint allows reading data into the PxServ project database
   }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Error" %}
-
 ```json
 {
-  “status": 401,
-  “message": “Invalid API key.”,
-  “data": {}
+  "status": 401,
+  "message": "Invalid API key.",
+  "data": {}
 }
 ```
-
 {% endtab %}
 {% endtabs %}

@@ -2,17 +2,15 @@
 
 <mark style="color:green;">`GET`</mark> `https://api.pxserv.net/database/getAll`
 
-This endpoint allows to read all data into the PxServ project database
+Fetch all key-value pairs from the project database.
 
 **Headers**
 
-| Key             | Value              |
-| --------------- | ------------------ |
-| Content-Type    | `application/json` |
-| apikey          | `Project API Key`  |
-| Accept-Language | `tr` \| `en`       |
-
-**Body**
+| Key | Value |
+| --- | ----- |
+| `Content-Type` | `application/json` |
+| `apikey` | Your project API key |
+| `Accept-Language` | `en` \| `tr` |
 
 **Response**
 

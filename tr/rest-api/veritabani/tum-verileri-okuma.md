@@ -2,17 +2,15 @@
 
 <mark style="color:green;">`GET`</mark> `https://api.pxserv.net/database/getAll`
 
-Bu endpoint, PxServ proje veritabanına tüm verileri okumayı sağlar
+Proje veritabanındaki tüm anahtar-değer çiftlerini getirir.
 
 **Headers**
 
-| Anahtar         | Değer              |
-| --------------- | ------------------ |
-| Content-Type    | `application/json` |
-| apikey          | `Proje API Keyi`   |
-| Accept-Language | `tr` \| `en`       |
-
-**Body**
+| Anahtar | Değer |
+| ------- | ----- |
+| `Content-Type` | `application/json` |
+| `apikey` | Proje API anahtarınız |
+| `Accept-Language` | `tr` \| `en` |
 
 **Response**
 
@@ -30,7 +28,7 @@ Bu endpoint, PxServ proje veritabanına tüm verileri okumayı sağlar
 ```
 {% endtab %}
 
-{% tab title="Error" %}
+{% tab title="Hata" %}
 ```json
 {
   "status": 401,

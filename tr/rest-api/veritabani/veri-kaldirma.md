@@ -1,28 +1,27 @@
-# REST API Veri Kaldırma
+# Veri Kaldırma
 
 <mark style="color:green;">`POST`</mark> `https://api.pxserv.net/database/removeData`
 
-Bu endpoint, PxServ proje veritabanına veri kaldırmayı sağlar
+Proje veritabanından bir anahtar-değer çiftini siler.
 
 **Headers**
 
-| Anahtar         | Değer              |
-| --------------- | ------------------ |
-| Content-Type    | `application/json` |
-| apikey          | `Proje API Keyi`   |
-| Accept-Language | `tr` \| `en`       |
+| Anahtar | Değer |
+| ------- | ----- |
+| `Content-Type` | `application/json` |
+| `apikey` | Proje API anahtarınız |
+| `Accept-Language` | `tr` \| `en` |
 
 **Body**
 
-| Anahtar | Tip    | Açıklama      |
-| ------- | ------ | ------------- |
-| `key`   | string | Veri anahtarı |
+| Anahtar | Tip | Açıklama |
+| ------- | --- | -------- |
+| `key` | string | Veri anahtarı |
 
 **Response**
 
 {% tabs %}
 {% tab title="200" %}
-
 ```json
 {
   "status": 200,
@@ -30,11 +29,9 @@ Bu endpoint, PxServ proje veritabanına veri kaldırmayı sağlar
   "data": {}
 }
 ```
-
 {% endtab %}
 
-{% tab title="Error" %}
-
+{% tab title="Hata" %}
 ```json
 {
   "status": 401,
@@ -42,6 +39,5 @@ Bu endpoint, PxServ proje veritabanına veri kaldırmayı sağlar
   "data": {}
 }
 ```
-
 {% endtab %}
 {% endtabs %}

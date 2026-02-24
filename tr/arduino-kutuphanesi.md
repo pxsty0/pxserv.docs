@@ -4,84 +4,64 @@ icon: gear-code
 
 # Arduino Kütüphanesi
 
-Bu örnek kod, PxServ projesi ile veri tabanı işlemleri yapmanızı sağlar. Aşağıdaki işlemleri gerçekleştirebilirsiniz:
+PxServ Arduino kütüphanesi, Arduino uyumlu cihazlardan (ESP32, ESP8266 vb.) PxServ API ile doğrudan iletişim kurmanızı sağlar.
 
-- Veritabanına veri kaydetme
-- Veritabanınada veriyi 0 ile 1 arasında geçiş yaptırma
-- Veritabanından veri okuma
-- Veritabanından veri silme
+**Desteklenen işlemler:**
+
+* Veritabanına veri kaydetme
+* Değeri `0` ile `1` arasında geçiş yaptırma
+* Veritabanından veri okuma
+* Veritabanından veri silme
 
 ## Gereksinimler
 
-Bu örneği kullanmadan önce aşağıdaki kütüphanelerin Arduino IDE'ye yüklü olduğundan emin olun:
+Kullanmadan önce Arduino IDE'ye şu kütüphaneyi yükleyin:
 
-- **PxServ.h**: PxServ API'si ile iletişim kurmak için.
-
-## Bağlantı Ayarları
-
-Wi-Fi bağlantısı bilgilerini ve PxServ API anahtarınızı kullanım başlığı altındaki koddaki gerekli alanlara girmeniz gerekmektedir.
+* **PxServ.h** — PxServ API istemcisi
 
 ## Kullanım
-
-Aşağıdaki örnek kodda, PxServ API kullanılarak veritabanı işlemlerinin nasıl gerçekleştirileceği yorum satırlarıyla birlikte adım adım anlatılmıştır; her işlemin işlevi ve nasıl çalıştığı kod içinde açıklanmıştır.
 
 ```cpp
 #include <PxServ.h>
 
-// PxServ API Anahtarı (Proje API anahtarınızı buraya girin)
-PxServ client("pxserv_api_key");
+PxServ client("pxserv_api_anahtariniz");
 
-void setup()
-{
-    // Wi-Fi ayarları (Wi-Fi SSID ve Şifre)
-    Serial.begin(115200);
-    PxServ::connectWifi("wifi_ssid", "wifi_sifre");
+void setup() {
+  Serial.begin(115200);
+  PxServ::connectWifi("wifi_ssid", "wifi_sifre");
 }
 
-void loop()
-{
-    // Veri Kaydetme
-    PxServ::Callback setResult = client.setData("exampleData1", "value"); // "exampleData1" anahtarına "value" değerini ekle
-    Serial.print("Veri Ekleme Sonucu -> Durum: ");
-    Serial.print(setResult.status);
-    Serial.print(" | Mesaj: ");
-    Serial.print(setResult.message);
-    Serial.print(" | Veri: ");
-    Serial.println(setResult.data);
+void loop() {
+  // Veri Kaydetme
+  PxServ::Callback setResult = client.setData("exampleData1", "value");
+  Serial.print("Kaydetme -> Durum: ");  Serial.print(setResult.status);
+  Serial.print(" | Mesaj: ");           Serial.print(setResult.message);
+  Serial.print(" | Veri: ");            Serial.println(setResult.data);
 
-    delay(2000); // İki saniye bekle
+  delay(2000);
 
-    // Veri Geçişi
-    PxServ::Callback toggleResult = client.toggleData("exampleData2"); // “exampleData2” anahtarının değerini 0 ile 1 arasında geçiş yaptırır
-    Serial.print("Toggle Result -> Status: ");
-    Serial.print(toggleResult.status);
-    Serial.print(" | Message: ");
-    Serial.print(toggleResult.message);
-    Serial.print(" | Data: ");
-    Serial.println(toggleResult.data);
+  // Veri Geçişi (0 ile 1 arasında döngü)
+  PxServ::Callback toggleResult = client.toggleData("exampleData2");
+  Serial.print("Geçiş -> Durum: ");    Serial.print(toggleResult.status);
+  Serial.print(" | Mesaj: ");           Serial.print(toggleResult.message);
+  Serial.print(" | Veri: ");            Serial.println(toggleResult.data);
 
-    delay(2000); // İki saniye bekle
+  delay(2000);
 
-    // Veri Okuma
-    PxServ::Callback getResult = client.getData("exampleData1"); // "exampleData1" anahtarının değerini getir
-    Serial.print("Veri Okuma Sonucu -> Durum: ");
-    Serial.print(getResult.status);
-    Serial.print(" | Mesaj: ");
-    Serial.print(getResult.message);
-    Serial.print(" | Veri: ");
-    Serial.println(getResult.data);
+  // Veri Okuma
+  PxServ::Callback getResult = client.getData("exampleData1");
+  Serial.print("Okuma -> Durum: ");    Serial.print(getResult.status);
+  Serial.print(" | Mesaj: ");           Serial.print(getResult.message);
+  Serial.print(" | Veri: ");            Serial.println(getResult.data);
 
-    delay(2000); // İki saniye bekle
+  delay(2000);
 
-    // Veri Kaldırma
-    PxServ::Callback removeResult = client.removeData("exampleData1"); // "exampleData1" anahtarını kaldır
-    Serial.print("Kaldırma Sonucu -> Durum: ");
-    Serial.print(removeResult.status);
-    Serial.print(" | Mesaj: ");
-    Serial.print(removeResult.message);
-    Serial.print(" | Veri: ");
-    Serial.println(removeResult.data);
+  // Veri Kaldırma
+  PxServ::Callback removeResult = client.removeData("exampleData1");
+  Serial.print("Kaldırma -> Durum: "); Serial.print(removeResult.status);
+  Serial.print(" | Mesaj: ");           Serial.print(removeResult.message);
+  Serial.print(" | Veri: ");            Serial.println(removeResult.data);
 
-    delay(2000); // İki saniye bekle
+  delay(2000);
 }
 ```
