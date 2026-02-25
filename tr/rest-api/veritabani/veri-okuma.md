@@ -1,39 +1,42 @@
-# Veri Okuma
+# REST API Veri Okuma
 
 <mark style="color:green;">`POST`</mark> `https://api.pxserv.net/database/getData`
 
-Proje veritabanından tek bir anahtarın değerini getirir.
+Bu endpoint, PxServ proje veritabanına veri okumayı sağlar
 
 **Headers**
 
-| Anahtar | Değer |
-| ------- | ----- |
-| `Content-Type` | `application/json` |
-| `apikey` | Proje API anahtarınız |
-| `Accept-Language` | `tr` \| `en` |
+| Anahtar         | Değer              |
+| --------------- | ------------------ |
+| Content-Type    | `application/json` |
+| apikey          | `Proje API Keyi`   |
+| Accept-Language | `tr` \| `en`       |
 
 **Body**
 
-| Anahtar | Tip | Açıklama |
-| ------- | --- | -------- |
-| `key` | string | Veri anahtarı |
+| Anahtar | Tip    | Açıklama      |
+| ------- | ------ | ------------- |
+| `key`   | string | Veri anahtarı |
 
 **Response**
 
 {% tabs %}
 {% tab title="200" %}
+
 ```json
 {
   "status": 200,
   "message": "OK",
   "data": {
-    "value": "<DEĞER>"
+    "value": "<VALUE>"
   }
 }
 ```
+
 {% endtab %}
 
-{% tab title="Hata" %}
+{% tab title="Error" %}
+
 ```json
 {
   "status": 401,
@@ -41,5 +44,6 @@ Proje veritabanından tek bir anahtarın değerini getirir.
   "data": {}
 }
 ```
+
 {% endtab %}
 {% endtabs %}

@@ -2,26 +2,27 @@
 
 <mark style="color:green;">`POST`</mark> `https://api.pxserv.net/database/removeData`
 
-Delete a key-value pair from the project database.
+This endpoint allows to remove data to the PxServ project database
 
 **Headers**
 
-| Key | Value |
-| --- | ----- |
-| `Content-Type` | `application/json` |
-| `apikey` | Your project API key |
-| `Accept-Language` | `en` \| `tr` |
+| Key             | Value              |
+| --------------- | ------------------ |
+| Content-Type    | `application/json` |
+| apikey          | `Project API Key`  |
+| Accept-Language | `tr` \| `en`       |
 
 **Body**
 
-| Key | Type | Description |
-| --- | ---- | ----------- |
-| `key` | string | Data key |
+| Key   | Type   | Description |
+| ----- | ------ | ----------- |
+| `key` | string | Data key    |
 
 **Response**
 
 {% tabs %}
 {% tab title="200" %}
+
 ```json
 {
   "status": 200,
@@ -29,9 +30,11 @@ Delete a key-value pair from the project database.
   "data": {}
 }
 ```
+
 {% endtab %}
 
 {% tab title="Error" %}
+
 ```json
 {
   "status": 401,
@@ -39,5 +42,6 @@ Delete a key-value pair from the project database.
   "data": {}
 }
 ```
+
 {% endtab %}
 {% endtabs %}

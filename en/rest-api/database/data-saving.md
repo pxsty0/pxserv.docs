@@ -2,27 +2,28 @@
 
 <mark style="color:green;">`POST`</mark> `https://api.pxserv.net/database/setData`
 
-Save or update a key-value pair in the project database.
+This endpoint allows saving data to the PxServ project database
 
 **Headers**
 
-| Key | Value |
-| --- | ----- |
-| `Content-Type` | `application/json` |
-| `apikey` | Your project API key |
-| `Accept-Language` | `en` \| `tr` |
+| Key             | Value              |
+| --------------- | ------------------ |
+| Content-Type    | `application/json` |
+| apikey          | `Project API Key`  |
+| Accept-Language | `tr` \| `en`       |
 
 **Body**
 
-| Key | Type | Description |
-| --- | ---- | ----------- |
-| `key` | string | Data key |
-| `value` | string | Data value |
+| Key     | Type   | Description |
+| ------- | ------ | ----------- |
+| `key`   | string | Data key    |
+| `value` | string | Data Value  |
 
 **Response**
 
 {% tabs %}
 {% tab title="200" %}
+
 ```json
 {
   "status": 200,
@@ -30,9 +31,11 @@ Save or update a key-value pair in the project database.
   "data": {}
 }
 ```
+
 {% endtab %}
 
 {% tab title="Error" %}
+
 ```json
 {
   "status": 401,
@@ -40,5 +43,6 @@ Save or update a key-value pair in the project database.
   "data": {}
 }
 ```
+
 {% endtab %}
 {% endtabs %}

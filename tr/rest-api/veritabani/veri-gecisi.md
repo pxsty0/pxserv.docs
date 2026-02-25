@@ -2,21 +2,21 @@
 
 <mark style="color:green;">`POST`</mark> `https://api.pxserv.net/database/toggleData`
 
-Proje veritabanındaki bir anahtarın değerini `0` ile `1` arasında geçiş yaptırır.
+Bu endpoint, PxServ proje veritabanındaki veriyi 0 ile 1 arasında geçiş yaptırmanıza olanak sağlar
 
 **Headers**
 
-| Anahtar | Değer |
-| ------- | ----- |
-| `Content-Type` | `application/json` |
-| `apikey` | Proje API anahtarınız |
-| `Accept-Language` | `tr` \| `en` |
+| Key             | Value              |
+| --------------- | ------------------ |
+| Content-Type    | `application/json` |
+| apikey          | `Project API Key`  |
+| Accept-Language | `tr` \| `en`       |
 
 **Body**
 
-| Anahtar | Tip | Açıklama |
-| ------- | --- | -------- |
-| `key` | string | Veri anahtarı |
+| Key   | Type   | Description |
+| ----- | ------ | ----------- |
+| `key` | string | Data key    |
 
 **Response**
 
@@ -31,7 +31,7 @@ Proje veritabanındaki bir anahtarın değerini `0` ile `1` arasında geçiş ya
 ```
 {% endtab %}
 
-{% tab title="Hata" %}
+{% tab title="Error" %}
 ```json
 {
   "status": 401,
