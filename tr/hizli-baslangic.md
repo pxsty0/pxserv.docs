@@ -4,91 +4,72 @@ icon: bolt
 
 # Hızlı Başlangıç
 
-PxServ, IoT sistemleri geliştirmek isteyen geliştiriciler ve kullanıcılar için kapsamlı yazılımsal ve donanımsal destekler sunan bir platformdur. PxServ, API'ler ve kütüphaneler ile projelerinize entegre olmanızı sağlarken, donanımsal olarak da PxServ Quadro geliştirme kartı (çok yakında!) gibi çözümler sunacaktır.
+PxServ, yazılım ve donanım projelerini buluta bağlamak için API ve kütüphane desteği sunan bir IoT platformudur. Arduino, JavaScript/TypeScript, Rust, ESP32, ESP8266, Raspberry Pi ve internete bağlanabilen her cihazla uyumludur.
 
-### PxServ ile Proje Geliştirme Adımları
+## Adımlar
 
-1. **PxServ'e Kaydolun ve Proje Oluşturun**\
-   PxServ platformuna giriş yaparak yeni bir proje oluşturun.
-2. **Geliştirme Ortamınızı Seçin**\
-   PxServ, birçok programlama dili ve donanım platformuyla uyumludur. Şu teknolojileri destekler:
-   * Arduino
-   * JavaScript / TypeScript
-   * Rust
-   * ESP32, ESP8266
-   * Raspberry Pi
-   * Internete bağlanabilen herhangi bir yazılım veya donanım
-3.  **Projenizi Geliştirin ve Veri Gönderimini Tanımlayın**\
-    Cihazınızın PxServ ile hangi verileri paylaşacağını belirleyin. PxServ'in sunduğu çeşitli kütüphanelerden faydalanarak projenizi kolayca geliştirebilirsiniz:
+### 1. Proje Oluşturun
 
-    * **Arduino Kütüphanesi**
-    * **JavaScript / TypeScript Kütüphanesi**
-    * **Rust Kütüphanesi**
+PxServ platformuna giriş yapın ve yeni bir proje oluşturun. Tüm isteklerde kimlik doğrulaması için kullanacağınız bir proje API anahtarı alacaksınız.
 
-    Örnek olarak, bu projede **Arduino platformunda ESP32 kullanacağımız için Arduino Kütüphanesi'ni tercih edeceğiz.**\
+### 2. Entegrasyon Yönteminizi Seçin
 
+PxServ şu entegrasyonları destekler:
 
-    Aşağıda, ESP32 ve DHT11 sıcaklık & nem sensörünü kullanarak PxServ'e veri gönderen bir örnek kod bulunmaktadır:\
+* [Arduino Kütüphanesi](arduino-kutuphanesi.md)
+* [JavaScript / TypeScript Kütüphanesi](javascript-typescript-kutuphanesi.md)
+* [Rust Kütüphanesi](rust-kutuphanesi.md)
+* [REST API](rest-api/README.md)
+* [Gerçek Zamanlı Bağlantı (Socket.IO)](gercek-zamanli-baglanti-socket.io.md)
 
+### 3. PxServ'e Veri Gönderin
 
-    ```cpp
-    #include <PxServ.h>
-    #include "DHT.h"
+Aşağıdaki örnek, DHT11 sensörü ve ESP32 kullanan Arduino Kütüphanesi ile sıcaklık ve nem verilerini PxServ'e göndermektedir:
 
-    #define DHT_PIN 4       // DHT11 Sensörünün bağlı olduğu pin
-    #define DHT_TYPE DHT11  // Sensör tipi varsayılan olarak DHT11
+```cpp
+#include <PxServ.h>
+#include "DHT.h"
 
-    // PxServ API Anahtarı (Proje API anahtarınızı buraya girin)
-    PxServ client("pxserv_api_key");
-    DHT dht(DHT_PIN, DHT_TYPE);
+#define DHT_PIN 4
+#define DHT_TYPE DHT11
 
-    void setup() {
-      // Wi-Fi ayarları (Wi-Fi SSID ve Şifre)
-      Serial.begin(115200);
-      PxServ::connectWifi("wifi_ssid", "wifi_sifre");
-      dht.begin();
-    }
+PxServ client("pxserv_api_anahtariniz");
+DHT dht(DHT_PIN, DHT_TYPE);
 
-    void loop() {
-      float temperature = dht.readTemperature();
-      float humidity = dht.readHumidity();
+void setup() {
+  Serial.begin(115200);
+  PxServ::connectWifi("wifi_ssid", "wifi_sifre");
+  dht.begin();
+}
 
-      if (isnan(temperature) || isnan(humidity)) {
-        Serial.println("DHT11 sensöründen veri okunamadı!");
-        return;
-      }
+void loop() {
+  float temperature = dht.readTemperature();
+  float humidity = dht.readHumidity();
 
-      Serial.print("Sıcaklık: ");
-      Serial.print(temperature);
-      Serial.println("°C");
-      Serial.print("Nem: ");
-      Serial.print(humidity);
-      Serial.println("%");
+  if (isnan(temperature) || isnan(humidity)) {
+    Serial.println("DHT11 sensöründen veri okunamadı.");
+    return;
+  }
 
-      // Verileri PxServ'e kaydetme
-      PxServ::Callback tempResult = client.setData("temperature", String(temperature));
-      PxServ::Callback humResult = client.setData("humidity", String(humidity));
+  client.setData("temperature", String(temperature));
+  client.setData("humidity", String(humidity));
+}
+```
 
-      Serial.print("Sıcaklık Kaydetme Durumu: ");
-      Serial.println(tempResult.status);
-      Serial.print("Nem Kaydetme Durumu: ");
-      Serial.println(humResult.status);
-    }
-    ```
+### 4. Verilerinizi Yönetin
 
-    \
-    [Arduino kütüphanesinin detaylı kullanımını ve ek özellikleri keşfetmek için buraya tıklayın.](arduino-kutuphanesi.md)
-4.  **Verilerinizi PxServ ile Yönetin**
+Veri aktarımı başladıktan sonra şunları yapabilirsiniz:
 
-    * PxServ'in yönetim panelinden AI destekli veri analizleri yapabilirsiniz.
-    * İstatistikler sayfasında verilerinizi inceleyebilirsiniz.
-    * Veritabanı sayfasından kaydedilen verileri görüntüleyebilir ve yönetebilirsiniz.
+* Yönetim panelinden yapay zeka destekli veri analizi yapın
+* İstatistikler sayfasında geçmiş verileri görüntüleyin
+* Veritabanı sayfasından kayıtları inceleyin ve yönetin
 
-    <div data-full-width="true"><figure><img src="../.gitbook/assets/resim (2).png" alt="" width="563"><figcaption><p>PxServ Websitesi</p></figcaption></figure> <figure><img src="../.gitbook/assets/resim (4).png" alt="" width="188"><figcaption><p>PxServ Mobil Uygulaması</p></figcaption></figure></div>
-5. **Verilerinize Her Yerden Erişim Sağlayın**\
-   Cihazınızın veya yazılımınızın verilerine aşağıdaki yöntemlerle erişebilir ve yönetebilirsiniz:
-   * PxServ Yönetim Paneli
-   * [PxServ Mobil Uygulaması](https://play.google.com/store/apps/details?id=net.pxserv.mobile)
-   * PxServ kullanarak geliştirilen / geliştireceğiniz özel yönetim panelleri, web sayfaları veya mobil uygulamalar
+<div data-full-width="true"><figure><img src="../.gitbook/assets/resim (2).png" alt="" width="563"><figcaption><p>PxServ Yönetim Paneli</p></figcaption></figure> <figure><img src="../.gitbook/assets/resim (4).png" alt="" width="188"><figcaption><p>PxServ Mobil Uygulaması</p></figcaption></figure></div>
 
-PxServ ile IoT projelerinizi kolayca geliştirebilir, yönetebilir ve optimize edebilirsiniz. Daha fazla bilgi için resmi dökümantasyonumuza göz atmayı unutmayın!
+### 5. Verilerinize Her Yerden Erişin
+
+Cihaz veya yazılım verilerinize şu yollarla erişebilirsiniz:
+
+* PxServ Yönetim Paneli
+* [PxServ Mobil Uygulaması](https://play.google.com/store/apps/details?id=net.pxserv.mobile)
+* PxServ API ile geliştirilmiş özel paneller veya uygulamalar

@@ -4,104 +4,73 @@ icon: tower-cell
 
 # Real-Time Connection (Socket.IO)
 
-This document explains how to establish a real-time connection to the **PxServ API** using **Socket.IO**. **Socket.IO** is a powerful library that enables bidirectional communication between the client and server. The example provided below is for **JavaScript / TypeScript**, but a similar event structure and **API key authentication** can be used with **Rust, Java, Python, and Go** by utilizing the appropriate Socket.IO library.
+PxServ supports real-time bidirectional communication via **Socket.IO**. Authenticate using your project API key and listen for data events as they occur.
 
-## Usage
+The examples below use JavaScript/TypeScript. The same event structure and API key authentication apply to any language with a Socket.IO client (Python, Rust, Go, Java, etc.).
 
-The following code demonstrates how to connect to **PxServ API** in real-time using **JavaScript / TypeScript**:
+## Connecting
 
 ```js
 const socket = io("https://api.pxserv.net", {
   auth: {
-    apiKey: "Project API Key",
+    apiKey: "your_project_api_key",
   },
 });
 
 socket.on("connect", () => {
-  console.log("Successfully connected to the server.");
+  console.log("Connected to PxServ.");
 });
 ```
-
-### Example Console Output:
-
-```
-Successfully connected to the server.
-```
-
-This connection ensures authentication with the **API key** while connecting to the server.
 
 ## Events
 
-When a connection is established via Socket.IO, specific events can be listened to track actions such as data storage and deletion.
+### `setData` — Data Updated
 
-### Data Update Event
-
-When new data is stored on the server, the following event is triggered.
-
-#### Event Name: `setData`
-
-#### Usage (JavaScript)
+Emitted when a key-value pair is saved or updated.
 
 ```js
 socket.on("setData", (data) => {
-  console.log("New data received:", data);
+  console.log("Data updated:", data);
 });
 ```
 
-### Example Console Output:
+**Example payload:**
 
-```
-New data received:
-{ key: "temperature", lastUpdate: "2025-03-31T17:40:19.653Z", icon: "hum", value: "64.11" }
+```json
+{ "key": "temperature", "lastUpdate": "2025-03-31T17:40:19.653Z", "icon": "hum", "value": "64.11" }
 ```
 
 ***
 
-### Data Deletion Event
+### `removeData` — Data Removed
 
-When data is deleted, the following event is triggered.
-
-#### Event Name: `removeData`
-
-#### Usage (JavaScript)
+Emitted when a key is deleted.
 
 ```js
 socket.on("removeData", (data) => {
-  console.log("A data entry was removed:", data);
+  console.log("Data removed:", data);
 });
 ```
 
-### Example Console Output:
+**Example payload:**
 
-```
-A data entry was removed:
-{ key: "temperature" }
+```json
+{ "key": "temperature" }
 ```
 
 ***
 
-## Terminating the Connection
-
-To terminate the connection, use the following code:
+## Disconnecting
 
 ```js
 socket.disconnect();
-console.log("Connection terminated.");
 ```
 
-### Example Console Output:
+## Other Languages
 
-```
-Connection terminated.
-```
-
-## Usage in Other Languages
-
-**Socket.IO** is also supported in various other programming languages. You can establish a connection using **the same event structure** and **API key authentication** with the following languages:
-
-* [**JavaScript / TypeScript**](https://socket.io/docs/v4/client-initialization/)
-* [**Python**](https://python-socketio.readthedocs.io/en/latest/client.html)
-* [**Rust**](https://github.com/1c3t3a/rust-socketio)
-* [**Go**](https://github.com/googollee/go-socket.io)
-
-By utilizing the appropriate Socket.IO client library for each language, a similar connection can be established.
+| Language | Socket.IO Client |
+| -------- | ---------------- |
+| JavaScript / TypeScript | [socket.io-client](https://socket.io/docs/v4/client-initialization/) |
+| Python | [python-socketio](https://python-socketio.readthedocs.io/en/latest/client.html) |
+| Rust | [rust-socketio](https://github.com/1c3t3a/rust-socketio) |
+| Go | [go-socket.io](https://github.com/googollee/go-socket.io) |

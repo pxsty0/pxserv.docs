@@ -1,4 +1,9 @@
-# Smart Temperature Monitor:
+# Smart Temperature Monitor
+
+Reads temperature and humidity from a DHT11 sensor connected to an ESP32 and uploads the values to PxServ every 5 minutes.
+
+**Hardware:** ESP32, DHT11 sensor\
+**Libraries:** `WiFi.h`, `PxServ.h`, `DHT.h`
 
 ```cpp
 #include <WiFi.h>
@@ -17,7 +22,7 @@ void setup() {
   Serial.begin(115200);
   WiFi.begin(WIFI_SSID, WIFI_PASS);
   dht.begin();
-  
+
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
   }
@@ -26,10 +31,10 @@ void setup() {
 void loop() {
   float temp = dht.readTemperature();
   float hum = dht.readHumidity();
-  
+
   client.setData("temperature", String(temp));
   client.setData("humidity", String(hum));
-  
-  delay(300000); // Update every 5 minutes
+
+  delay(300000); // 5-minute interval
 }
 ```

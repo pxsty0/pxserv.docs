@@ -4,104 +4,73 @@ icon: tower-cell
 
 # Gerçek Zamanlı Bağlantı (Socket.IO)
 
-Bu doküman, PxServ API'ye **Socket.IO** kullanarak nasıl gerçek zamanlı bağlanabileceğinizi açıklar. **Socket.IO**, istemci ve sunucu arasında çift yönlü iletişim sağlayan güclü bir kütüphanedir. Aşağıda verilen örnek **JavaScript / TypeScript** için hazırlanmıştır, ancak **Rust, Java, Python ve Go** gibi dillerde uygun Socket.IO kütüphanesi kullanılarak benzer event yapısı ve **API anahtarı (API Key) ile kimlik doğrulama** sağlanabilir.
+PxServ, **Socket.IO** aracılığıyla gerçek zamanlı çift yönlü iletişimi destekler. Proje API anahtarınızla kimlik doğrulaması yapın ve veri olaylarını anında dinleyin.
 
-## Kullanım
+Aşağıdaki örnekler JavaScript/TypeScript kullanmaktadır. Aynı olay yapısı ve API anahtarı kimlik doğrulaması, Socket.IO istemcisi olan tüm dillerde (Python, Rust, Go, Java vb.) geçerlidir.
 
-Aşağıdaki kod ile **JavaScript / TypeScript** kullanarak **PxServ API'ye** gerçek zamanlı olarak bağlanabilirsiniz:
+## Bağlantı
 
 ```js
 const socket = io("https://api.pxserv.net", {
   auth: {
-    apiKey: "Proje API Keyi",
+    apiKey: "proje_api_anahtariniz",
   },
 });
 
 socket.on("connect", () => {
-  console.log("Sunucuya başarılı şekilde bağlanıldı.");
+  console.log("PxServ'e bağlandı.");
 });
 ```
 
-### Örnek Console Çıktısı:
+## Olaylar
 
-```
-Sunucuya başarılı şekilde bağlanıldı.
-```
+### `setData` — Veri Güncellendi
 
-Bu bağlantı, **API anahtarı** ile kimlik doğrulama yaparak sunucuya bağlanmayı sağlar.
-
-## Eventler
-
-Socket.IO ile bağlantı kurulduğunda belirli eventler dinlenerek veri kaydedilmesi ve silinmesi gibi işlemlerin durumları takip edilebilir.
-
-### Veri Güncelleme Olayı
-
-Sunucuya yeni veri kaydedildiğinde aşağıdaki event tetiklenir.
-
-#### Olay Adı: `setData`
-
-#### Kullanım (JavaScript)
+Bir anahtar-değer çifti kaydedildiğinde veya güncellendiğinde tetiklenir.
 
 ```js
 socket.on("setData", (data) => {
-  console.log("Yeni veri alındı:", data);
+  console.log("Veri güncellendi:", data);
 });
 ```
 
-### Örnek Console Çıktısı:
+**Örnek veri:**
 
-```
-Yeni veri alındı:
-{ key: "sıcaklık", lastUpdate: "2025-03-31T17:40:19.653Z", icon: "hum", value: "64.11" }
+```json
+{ "key": "sıcaklık", "lastUpdate": "2025-03-31T17:40:19.653Z", "icon": "hum", "value": "64.11" }
 ```
 
 ***
 
-### Veri Silme Olayı
+### `removeData` — Veri Silindi
 
-Bir veri silindiğinde aşağıdaki event tetiklenir.
-
-#### Olay Adı: `removeData`
-
-#### Kullanım (JavaScript)
+Bir anahtar silindiğinde tetiklenir.
 
 ```js
 socket.on("removeData", (data) => {
-  console.log("Bir veri kaldırıldı:", data);
+  console.log("Veri silindi:", data);
 });
 ```
 
-### Örnek Console Çıktısı:
+**Örnek veri:**
 
-```
-Bir veri kaldırıldı:
-{ key: "sıcaklık" }
+```json
+{ "key": "sıcaklık" }
 ```
 
 ***
 
 ## Bağlantıyı Sonlandırma
 
-Bağlantıyı sonlandırmak için şu kod kullanılabilir:
-
 ```js
 socket.disconnect();
-console.log("Bağlantı sonlandırıldı.");
 ```
 
-### Örnek Console Çıktısı:
+## Diğer Diller
 
-```
-Bağlantı sonlandırıldı.
-```
-
-## Diğer Dillerde Kullanım
-
-**Socket.IO**, farklı dillerde de desteklenmektedir. Aşağıdaki dillerde **aynı event yapısı** ve **API anahtarı ile kimlik doğrulama** kullanarak bağlantı kurulabilir:
-
-* [**JavaScript / TypeScript**](https://socket.io/docs/v4/client-initialization/)
-* [**Python**](https://python-socketio.readthedocs.io/en/latest/client.html)
-* [**Rust**](https://github.com/1c3t3a/rust-socketio)
-* [**Go**](https://github.com/googollee/go-socket.io)
-
-Her dil için uygun Socket.IO istemci kütüphanesi kullanılarak benzer şekilde bağlanılabilir.
+| Dil | Socket.IO İstemcisi |
+| --- | ------------------- |
+| JavaScript / TypeScript | [socket.io-client](https://socket.io/docs/v4/client-initialization/) |
+| Python | [python-socketio](https://python-socketio.readthedocs.io/en/latest/client.html) |
+| Rust | [rust-socketio](https://github.com/1c3t3a/rust-socketio) |
+| Go | [go-socket.io](https://github.com/googollee/go-socket.io) |
