@@ -27,15 +27,6 @@ Note: all values must be sent and stored as strings (for example: `"40.712776"`)
 
 Values must be strings. Example payloads:
 
-* Plain topic/value (MQTT):
-
-```json
-map/lat: "40.712776"
-map/long: "-74.005974"
-map/speed: "12.5"
-map/connectedsats: "7"
-```
-
 * HTTP REST API (single key):
 
 ```bash

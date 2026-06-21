@@ -27,15 +27,6 @@ Not: Tüm değerler metin (string) olarak gönderilmelidir. Örneğin `"40.71277
 
 Değerler string olarak gönderilmelidir. Örnekler:
 
-* Düz konu/değer (ör. MQTT):
-
-```json
-map/lat: "40.712776"
-map/long: "-74.005974"
-map/speed: "12.5"
-map/connectedsats: "7"
-```
-
 * HTTP REST API (tek anahtar):
 
 ```bash
