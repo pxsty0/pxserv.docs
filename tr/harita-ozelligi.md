@@ -29,7 +29,7 @@ Değerler string olarak gönderilmelidir. Örnekler:
 
 * Düz konu/değer (ör. MQTT):
 
-```
+```json
 map/lat: "40.712776"
 map/long: "-74.005974"
 map/speed: "12.5"
@@ -38,40 +38,40 @@ map/connectedsats: "7"
 
 * HTTP REST API (tek anahtar):
 
-```
+```bash
 curl -s -X POST https://api.pxserv.net/database/setData \
   -H "Content-Type: application/json" -H "apikey: YOUR_KEY" \
   -d '{"key":"map/lat","value":"40.712776"}'
 ```
 
-Detaylar: HTTP API ayrıntıları için bkz: [Veri Kaydetme](tr/rest-api/veritabani/veri-kaydetme.md)
+Detaylar: HTTP API ayrıntıları için bkz: [Veri Kaydetme](rest-api/veritabani/veri-kaydetme.md)
 
 ## Kısa örnekler (resmi kütüphaneler)
 
 * Arduino (PxServ kütüphanesi):
 
-```
+```cpp
 PxServ client("YOUR_API_KEY");
 client.setData("map/lat", "40.712776");
 ```
 
-Detaylar: Kullanım ve yapılandırma için bkz: [Arduino Kütüphanesi](tr/arduino-kutuphanesi.md)
+Detaylar: Kullanım ve yapılandırma için bkz: [Arduino Kütüphanesi](arduino-kutuphanesi.md)
 
 * JavaScript / TypeScript (pxserv):
 
-```
+```typescript
 await pxServ.setData("map/long", "-74.005974");
 ```
 
-Detaylar: Örnekler ve SDK bilgileri için bkz: [JavaScript / TypeScript Kütüphanesi](tr/javascript-typescript-kutuphanesi.md)
+Detaylar: Örnekler ve SDK bilgileri için bkz: [JavaScript / TypeScript Kütüphanesi](javascript-typescript-kutuphanesi.md)
 
 * Rust (`pxserv` crate):
 
-```
+```rust
 let resp = client.setdata("map/speed", "12.5");
 ```
 
-Detaylar: Crate kullanımı için bkz: [Rust Kütüphanesi](tr/rust-kutuphanesi.md)
+Detaylar: Crate kullanımı için bkz: [Rust Kütüphanesi](rust-kutuphanesi.md)
 
 ## İpuçları
 

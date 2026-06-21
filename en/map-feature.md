@@ -29,7 +29,7 @@ Values must be strings. Example payloads:
 
 * Plain topic/value (MQTT):
 
-```
+```json
 map/lat: "40.712776"
 map/long: "-74.005974"
 map/speed: "12.5"
@@ -38,40 +38,40 @@ map/connectedsats: "7"
 
 * HTTP REST API (single key):
 
-```
+```bash
 curl -s -X POST https://api.pxserv.net/database/setData \
   -H "Content-Type: application/json" -H "apikey: YOUR_KEY" \
   -d '{"key":"map/lat","value":"40.712776"}'
 ```
 
-Details: See the REST API Data Saving page for full HTTP API details: [Data Saving](en/rest-api/database/data-saving.md)
+Details: See the REST API Data Saving page for full HTTP API details: [Data Saving](rest-api/database/data-saving.md)
 
 ## Short examples (official libraries)
 
 * Arduino (PxServ library):
 
-```
+```cpp
 PxServ client("YOUR_API_KEY");
 client.setData("map/lat", "40.712776");
 ```
 
-Details: See the Arduino Library for usage and configuration: [Arduino Library](en/arduino-library.md)
+Details: See the Arduino Library for usage and configuration: [Arduino Library](arduino-library.md)
 
 * JavaScript / TypeScript (pxserv):
 
-```
+```typescript
 await pxServ.setData("map/long", "-74.005974");
 ```
 
-Details: See the JavaScript / TypeScript Library for examples and SDK details: [JavaScript / TypeScript Library](en/javascript-typescript-library.md)
+Details: See the JavaScript / TypeScript Library for examples and SDK details: [JavaScript / TypeScript Library](javascript-typescript-library.md)
 
 * Rust (`pxserv` crate):
 
-```
+```rust
 let resp = client.setdata("map/speed", "12.5");
 ```
 
-Details: See the Rust Library for crate usage: [Rust Library](en/rust-library.md)
+Details: See the Rust Library for crate usage: [Rust Library](rust-library.md)
 
 ## Tips
 
