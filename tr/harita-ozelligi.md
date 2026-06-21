@@ -1,36 +1,33 @@
 ---
 title: Harita Özelliği
+icon: map-location-dot
 ---
 
 # Harita Özelliği
 
-Bu sayfa, Harita panelinin kullanımını, gereken veri anahtarlarını ve cihazdan nasıl koordinat gönderileceğini açıklar.
-
-## Kısa özet
-
-- Amaç: Cihaz konumlarını ve temel telemetriyi (hız, bağlı uydu sayısı) görselleştirmek.
-- Göründüğü yer: Kontrol panelindeki Harita bölümü.
+* Amaç: Cihaz konumlarını ve temel telemetriyi (hız, bağlı uydu sayısı) görselleştirmek.
+* Göründüğü yer: Kontrol panelindeki Harita bölümü.
 
 ## Gereken veri anahtarları
 
 Harita paneli aşağıdaki anahtarları bekler:
 
-- `map/lat` — enlem (ondalık derece)
-- `map/long` — boylam (ondalık derece)
-- `map/speed` — hız (km/s, opsiyonel)
-- `map/connectedsats` — bağlı uydu sayısı (opsiyonel)
+* `map/lat` — enlem (ondalık derece)
+* `map/long` — boylam (ondalık derece)
+* `map/speed` — hız (km/s, opsiyonel)
+* `map/connectedsats` — bağlı uydu sayısı (opsiyonel)
 
 Not: Tüm değerler metin (string) olarak gönderilmelidir. Örneğin `"40.712776"` kullanın; ham sayısal tip göndermeyin. Arayüz bu anahtarları veritabanında arar; eksikse uyarı görüntüler.
 
 ## Arayüz tasarımı
 
-<görsel>
+<figure><img src="../.gitbook/assets/map-feature-tr.png" alt=""><figcaption></figcaption></figure>
 
 ## Örnek gönderimler
 
 Değerler string olarak gönderilmelidir. Örnekler:
 
-- Düz konu/değer (ör. MQTT):
+* Düz konu/değer (ör. MQTT):
 
 ```
 map/lat: "40.712776"
@@ -39,7 +36,7 @@ map/speed: "12.5"
 map/connectedsats: "7"
 ```
 
-- HTTP REST API (tek anahtar):
+* HTTP REST API (tek anahtar):
 
 ```
 curl -s -X POST https://api.pxserv.net/database/setData \
@@ -51,7 +48,7 @@ Detaylar: HTTP API ayrıntıları için bkz: [Veri Kaydetme](tr/rest-api/veritab
 
 ## Kısa örnekler (resmi kütüphaneler)
 
-- Arduino (PxServ kütüphanesi):
+* Arduino (PxServ kütüphanesi):
 
 ```
 PxServ client("YOUR_API_KEY");
@@ -60,7 +57,7 @@ client.setData("map/lat", "40.712776");
 
 Detaylar: Kullanım ve yapılandırma için bkz: [Arduino Kütüphanesi](tr/arduino-kutuphanesi.md)
 
-- JavaScript / TypeScript (pxserv):
+* JavaScript / TypeScript (pxserv):
 
 ```
 await pxServ.setData("map/long", "-74.005974");
@@ -68,7 +65,7 @@ await pxServ.setData("map/long", "-74.005974");
 
 Detaylar: Örnekler ve SDK bilgileri için bkz: [JavaScript / TypeScript Kütüphanesi](tr/javascript-typescript-kutuphanesi.md)
 
-- Rust (`pxserv` crate):
+* Rust (`pxserv` crate):
 
 ```
 let resp = client.setdata("map/speed", "12.5");
@@ -78,11 +75,11 @@ Detaylar: Crate kullanımı için bkz: [Rust Kütüphanesi](tr/rust-kutuphanesi.
 
 ## İpuçları
 
-- Hareketli cihazlar için uygun güncelleme sıklığını seçin (örn. 5–30 s).
-- Gürültüyü azaltmak için konum verilerini filtreleyin veya ortalama alın.
-- Gizlilik gerekiyorsa hassasiyeti düşürün veya sabitken güncellemeyi seyrekleştirin.
+* Hareketli cihazlar için uygun güncelleme sıklığını seçin (örn. 5–30 s).
+* Gürültüyü azaltmak için konum verilerini filtreleyin veya ortalama alın.
+* Gizlilik gerekiyorsa hassasiyeti düşürün veya sabitken güncellemeyi seyrekleştirin.
 
 ## Sorun giderme
 
-- Ekranda "Koordinat bekleniyor..." görünüyorsa `map/lat` ve `map/long` veritabanına gönderiliyor mu kontrol edin.
-- Sarı uyarı çıkıyorsa gerekli anahtarlar en az bir kez yayınlanmış olmalıdır.
+* Ekranda "Koordinat bekleniyor..." görünüyorsa `map/lat` ve `map/long` veritabanına gönderiliyor mu kontrol edin.
+* Sarı uyarı çıkıyorsa gerekli anahtarlar en az bir kez yayınlanmış olmalıdır.

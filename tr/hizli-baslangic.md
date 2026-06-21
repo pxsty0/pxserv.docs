@@ -19,7 +19,7 @@ PxServ şu entegrasyonları destekler:
 * [Arduino Kütüphanesi](arduino-kutuphanesi.md)
 * [JavaScript / TypeScript Kütüphanesi](javascript-typescript-kutuphanesi.md)
 * [Rust Kütüphanesi](rust-kutuphanesi.md)
-* [REST API](rest-api/README.md)
+* [REST API](rest-api/)
 * [Gerçek Zamanlı Bağlantı (Socket.IO)](gercek-zamanli-baglanti-socket.io.md)
 
 ### 3. PxServ'e Veri Gönderin
@@ -64,7 +64,7 @@ Veri aktarımı başladıktan sonra şunları yapabilirsiniz:
 * İstatistikler sayfasında geçmiş verileri görüntüleyin
 * Veritabanı sayfasından kayıtları inceleyin ve yönetin
 
-<div data-full-width="true"><figure><img src="../.gitbook/assets/resim (2).png" alt="" width="563"><figcaption><p>PxServ Yönetim Paneli</p></figcaption></figure> <figure><img src="../.gitbook/assets/resim (4).png" alt="" width="188"><figcaption><p>PxServ Mobil Uygulaması</p></figcaption></figure></div>
+<div data-full-width="true"><figure><img src="../.gitbook/assets/resim (1).png" alt="" width="563"><figcaption><p>PxServ Yönetim Paneli</p></figcaption></figure> <figure><img src="../.gitbook/assets/resim (3).png" alt="" width="188"><figcaption><p>PxServ Mobil Uygulaması</p></figcaption></figure></div>
 
 ### 5. Verilerinize Her Yerden Erişin
 
