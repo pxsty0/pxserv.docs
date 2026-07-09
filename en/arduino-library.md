@@ -12,6 +12,7 @@ The PxServ Arduino library enables direct communication with the PxServ API from
 * Toggle a value between `0` and `1`
 * Read data from the database
 * Delete data from the database
+* OTA-supported firmware updates on ESP32 and ESP8266 devices
 
 ## Requirements
 
@@ -20,6 +21,8 @@ Install the following library in the Arduino IDE before use:
 * **PxServ.h** — PxServ API client
 
 ## Usage
+
+Basic data operations example:
 
 ```cpp
 #include <PxServ.h>
@@ -65,3 +68,5 @@ void loop() {
   delay(2000);
 }
 ```
+
+For remote firmware updates with OTA, see: [OTA Feature](ota-feature.md)

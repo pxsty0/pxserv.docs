@@ -12,6 +12,7 @@ PxServ Arduino kütüphanesi, Arduino uyumlu cihazlardan (ESP32, ESP8266 vb.) Px
 * Değeri `0` ile `1` arasında geçiş yaptırma
 * Veritabanından veri okuma
 * Veritabanından veri silme
+* ESP32 ve ESP8266 cihazlarda OTA destekli firmware güncelleme
 
 ## Gereksinimler
 
@@ -20,6 +21,8 @@ Kullanmadan önce Arduino IDE'ye şu kütüphaneyi yükleyin:
 * **PxServ.h** — PxServ API istemcisi
 
 ## Kullanım
+
+Temel veri işlemleri için örnek kullanım:
 
 ```cpp
 #include <PxServ.h>
@@ -65,3 +68,5 @@ void loop() {
   delay(2000);
 }
 ```
+
+OTA ile uzaktan firmware güncelleme akışı için bkz: [OTA Özelliği](ota-ozelligi.md)

@@ -21,6 +21,7 @@ PxServ supports the following integrations:
 * [Rust Library](rust-library.md)
 * [REST API](rest-api/README.md)
 * [Real-Time Connection (Socket.IO)](realtime-connection-socket.io.md)
+* [OTA Feature](ota-feature.md)
 
 ### 3. Send Data to PxServ
 

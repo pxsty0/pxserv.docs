@@ -21,6 +21,7 @@ PxServ şu entegrasyonları destekler:
 * [Rust Kütüphanesi](rust-kutuphanesi.md)
 * [REST API](rest-api/)
 * [Gerçek Zamanlı Bağlantı (Socket.IO)](gercek-zamanli-baglanti-socket.io.md)
+* [OTA Özelliği](ota-ozelligi.md)
 
 ### 3. PxServ'e Veri Gönderin
 
