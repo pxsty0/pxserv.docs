@@ -126,13 +126,13 @@ main();
 
 ## Metot referansı
 
-| Metot | Açıklama |
-|---|---|
+| Metot                 | Açıklama                                                                |
+| --------------------- | ----------------------------------------------------------------------- |
 | `setData(key, value)` | Veritabanına anahtar-değer çifti kaydeder veya mevcut değeri günceller. |
-| `getData(key)` | Belirtilen anahtarın güncel değerini okur. |
-| `toggleData(key)` | Belirtilen değeri `0` ve `1` arasında değiştirir. |
-| `getAll()` | Projedeki tüm verileri tek istekte döndürür. |
-| `removeData(key)` | Belirtilen anahtarı veritabanından kaldırır. |
+| `getData(key)`        | Belirtilen anahtarın güncel değerini okur.                              |
+| `toggleData(key)`     | Belirtilen değeri `0` ve `1` arasında değiştirir.                       |
+| `getAll()`            | Projedeki tüm verileri tek istekte döndürür.                            |
+| `removeData(key)`     | Belirtilen anahtarı veritabanından kaldırır.                            |
 
 ## Yanıt yapısı
 
@@ -166,7 +166,6 @@ Okuma işlemlerinde `data` alanı ilgili anahtarın değerini ve ek meta bilgile
 * Kullanıcıdan gelen `key` değerlerini doğrudan güvenmeden önce doğrulayın.
 * Sensör değerlerini mümkün olduğunca tutarlı formatta gönderin.
 * Hata yönetimi için tüm istekleri `try/catch` ile sarın.
-* Sık çalışan servislerde gereksiz `getAll()` çağrılarından kaçının.
 
 ## Sorun giderme
 

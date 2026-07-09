@@ -126,13 +126,13 @@ main();
 
 ## Method Reference
 
-| Method | Description |
-|---|---|
-| `setData(key, value)` | Saves or updates a key-value pair in the database. |
-| `getData(key)` | Reads the current value of the specified key. |
-| `toggleData(key)` | Toggles the specified value between `0` and `1`. |
-| `getAll()` | Returns all data in the project in a single request. |
-| `removeData(key)` | Removes the specified key from the database. |
+| Method                | Description                                          |
+| --------------------- | ---------------------------------------------------- |
+| `setData(key, value)` | Saves or updates a key-value pair in the database.   |
+| `getData(key)`        | Reads the current value of the specified key.        |
+| `toggleData(key)`     | Toggles the specified value between `0` and `1`.     |
+| `getAll()`            | Returns all data in the project in a single request. |
+| `removeData(key)`     | Removes the specified key from the database.         |
 
 ## Response Shape
 
@@ -166,7 +166,6 @@ Read operations may include the value and additional metadata in the `data` fiel
 * Validate user-provided `key` values before using them.
 * Send sensor values in a consistent format whenever possible.
 * Wrap requests in `try/catch` for error handling.
-* Avoid unnecessary `getAll()` calls in frequently running services.
 
 ## Troubleshooting
 
