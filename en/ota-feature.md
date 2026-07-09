@@ -5,12 +5,16 @@ icon: cloud-arrow-up
 
 # OTA Feature
 
+{% hint style="warning" %}
+To use the OTA feature, you must have **version 1.3.0 or newer** of the PxServ Arduino library installed. Older versions may not include the `setDeviceFirmwareVersion()`, `getDeviceFirmwareVersion()`, and `checkOtaFirmware()` functions.
+{% endhint %}
+
 OTA (Over The Air) lets you upload new firmware to ESP32 and ESP8266-based devices remotely over Wi-Fi, without connecting a USB cable. The PxServ OTA feature focuses on tracking the firmware version of devices that use the PxServ Arduino library, checking for suitable updates, and safely delivering new code to devices in the field.
 
-* Purpose: send remote code updates to ESP32 and ESP8266 devices.
-* Used in: the OTA / device update flow in the PxServ panel and the PxServ Arduino library.
-* Supported boards: Wi-Fi-enabled boards in the ESP32 and ESP8266 families.
-* Initial setup requirement: the first OTA-enabled firmware must be uploaded to the device once over USB/serial.
+- Purpose: send remote code updates to ESP32 and ESP8266 devices.
+- Used in: the OTA / device update flow in the PxServ panel and the PxServ Arduino library.
+- Supported boards: Wi-Fi-enabled boards in the ESP32 and ESP8266 families.
+- Initial setup requirement: the first OTA-enabled firmware must be uploaded to the device once over USB/serial.
 
 {% hint style="info" %}
 **ESP8266 warning:** OTA support on ESP8266 devices may not be as stable or as comfortable as ESP32 because of the chip's hardware limitations. For the best OTA experience, use boards with sufficient flash and RAM capacity. As firmware size grows, update stability on ESP8266 may decrease.
@@ -22,17 +26,17 @@ OTA is especially useful for devices deployed in the field, installed inside an 
 
 OTA is ideal when:
 
-* The device is not physically easy to access.
-* Multiple ESP32 or ESP8266 devices are connected to the same project.
-* You want to distribute firmware bug fixes, new features, or configuration changes.
-* You want to centrally track which version each device is running.
+- The device is not physically easy to access.
+- Multiple ESP32 or ESP8266 devices are connected to the same project.
+- You want to distribute firmware bug fixes, new features, or configuration changes.
+- You want to centrally track which version each device is running.
 
 Use OTA carefully when:
 
-* The device is battery-powered and may shut down during an update.
-* The Wi-Fi connection drops frequently.
-* The firmware size is close to the available flash space.
-* The device controls a critical system and no maintenance window has been planned.
+- The device is battery-powered and may shut down during an update.
+- The Wi-Fi connection drops frequently.
+- The firmware size is close to the available flash space.
+- The device controls a critical system and no maintenance window has been planned.
 
 ## How does the OTA flow work?
 
@@ -49,8 +53,6 @@ The PxServ OTA flow works as follows:
 
 <figure><img src="../.gitbook/assets/resim (8).png" alt="PxServ OTA panel overview"><figcaption></figcaption></figure>
 
-
-
 ## Core Concepts
 
 | Concept        | Description                                                                                                                                                                           |
@@ -63,13 +65,13 @@ The PxServ OTA flow works as follows:
 
 Before using OTA, make sure you have:
 
-* PxServ project API key
-* Arduino IDE or PlatformIO
-* ESP32 or ESP8266 board support
-* `PxServ.h` Arduino library
-* Stable Wi-Fi connection
-* The first OTA-enabled firmware uploaded to the device over USB/serial
-* Enough flash space for the firmware
+- PxServ project API key
+- Arduino IDE or PlatformIO
+- ESP32 or ESP8266 board support
+- `PxServ.h` Arduino library
+- Stable Wi-Fi connection
+- The first OTA-enabled firmware uploaded to the device over USB/serial
+- Enough flash space for the firmware
 
 For ESP32, you generally need to choose an OTA-compatible partition scheme in Arduino IDE. As firmware size grows, the area reserved for OTA may become insufficient. On ESP8266, flash size and OTA space are also important; check the `Flash Size` setting for larger firmware.
 
@@ -123,9 +125,9 @@ Arduino IDE may create more than one output file depending on the board type and
 
 Example file names:
 
-* `greenhouse-humidity.ino.bin`
-* `project-name.ino.bin`
-* `smart-relay.ino.bin`
+- `greenhouse-humidity.ino.bin`
+- `project-name.ino.bin`
+- `smart-relay.ino.bin`
 
 {% hint style="info" %}
 On ESP32, you may also see additional `.bin` files related to the bootloader or partition table. For OTA updates, you generally only need the `.bin` file in the `project-name.ino.bin` format.
@@ -139,24 +141,24 @@ If the device powers off or loses Wi-Fi during OTA, the update may fail. ESP32 a
 
 **The device does not see the update**
 
-* Check whether the device is connected to the internet.
-* Make sure the API key belongs to the correct project.
-* Verify that `checkOtaFirmware()` is called regularly inside `loop()`.
-* Check whether the firmware version is marked as the active version in the panel.
+- Check whether the device is connected to the internet.
+- Make sure the API key belongs to the correct project.
+- Verify that `checkOtaFirmware()` is called regularly inside `loop()`.
+- Check whether the firmware version is marked as the active version in the panel.
 
 **The update starts but does not complete**
 
-* Check Wi-Fi signal quality.
-* Make sure the power supply is stable.
-* Check whether the firmware file size fits into the OTA area.
-* If you use ESP8266, review flash size, free RAM, and firmware size.
+- Check Wi-Fi signal quality.
+- Make sure the power supply is stable.
+- Check whether the firmware file size fits into the OTA area.
+- If you use ESP8266, review flash size, free RAM, and firmware size.
 
 **The device does not boot after the update**
 
-* Read boot logs with the Serial Monitor.
-* The firmware may have been compiled for the wrong board.
-* The code may be blocked during startup while waiting for Wi-Fi or a sensor.
-* If needed, upload the last stable firmware again over USB/serial.
+- Read boot logs with the Serial Monitor.
+- The firmware may have been compiled for the wrong board.
+- The code may be blocked during startup while waiting for Wi-Fi or a sensor.
+- If needed, upload the last stable firmware again over USB/serial.
 
 ## Short Summary
 

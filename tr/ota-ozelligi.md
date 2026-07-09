@@ -5,12 +5,16 @@ icon: cloud-arrow-up
 
 # OTA Özelliği
 
-OTA (Over The Air), ESP32 ve ESP8266 tabanlı cihazlara yeni firmware'i USB kablosu takmadan, Wi-Fi üzerinden uzaktan yüklemenizi sağlar. PxServ OTA özelliği, PxServ Arduino kütüphanesi ile çalışan cihazların sürüm bilgisini takip etmeye, uygun güncellemeyi kontrol etmeye ve yeni kodu sahadaki cihaza güvenli şekilde aktarmaya odaklanır.
+{% hint style="warning" %}
+OTA özelliğini kullanabilmek için PxServ Arduino kütüphanesinin **1.3.0 veya daha yeni** bir sürümü yüklü olmalıdır. Daha eski sürümlerde `setDeviceFirmwareVersion()`, `getDeviceFirmwareVersion()` ve `checkOtaFirmware()` fonksiyonları bulunmayabilir.
+{% endhint %}
 
-* Amaç: ESP32 ve ESP8266 cihazlarına uzaktan kod güncellemesi göndermek.
-* Kullanıldığı yer: PxServ panelindeki OTA / cihaz güncelleme akışı ve PxServ Arduino kütüphanesi.
-* Desteklenen kartlar: ESP32 ve ESP8266 ailesindeki Wi-Fi destekli kartlar.
-* İlk kurulum şartı: Cihazlara OTA destekli ilk firmware bir kez USB/seri port üzerinden yüklenmelidir.
+OTA (Over The Air), ESP32 ve ESP8266 tabanlı cihazlara yeni firmware'i USB kablosu takmadan, Wi-Fi üzerinden uzaktan yüklemenizi sağlar. PxServ OTA özelliği, PxServ Arduino kütüphanesiyle çalışan cihazların firmware sürümünü takip etmeye, aktif güncellemeleri kontrol etmeye ve yeni kodu sahadaki cihazlara güvenli şekilde dağıtmaya odaklanır.
+
+- Amaç: ESP32 ve ESP8266 cihazlarına uzaktan kod güncellemesi göndermek.
+- Kullanıldığı yer: PxServ panelindeki OTA / cihaz güncelleme akışı ve PxServ Arduino kütüphanesi.
+- Desteklenen kartlar: ESP32 ve ESP8266 ailesindeki Wi-Fi destekli kartlar.
+- İlk kurulum şartı: Cihazlara OTA destekli ilk firmware bir kez USB/seri port üzerinden yüklenmelidir.
 
 {% hint style="info" %}
 **ESP8266 uyarısı:** ESP8266 cihazlarda OTA desteği, çipin donanımsal kısıtlamaları nedeniyle ESP32 kadar sağlıklı ve konforlu olmayabilir. En iyi OTA deneyimi için yeterli flash alanına ve RAM kapasitesine sahip kartlar tercih edilmelidir. Firmware boyutu büyüdükçe ESP8266 tarafında güncelleme kararlılığı düşebilir.
@@ -22,17 +26,17 @@ OTA özellikle sahada çalışan, kutu içine yerleştirilmiş veya erişilmesi 
 
 OTA şu durumlarda idealdir:
 
-* Cihaz fiziksel olarak kolay erişilebilir değildir.
-* Birden fazla ESP32 veya ESP8266 aynı projeye bağlıdır.
-* Firmware'de hata düzeltmesi, yeni özellik veya konfigürasyon değişikliği dağıtmak istersiniz.
-* Cihazların hangi sürümde çalıştığını merkezi olarak görmek istersiniz.
+- Cihaz fiziksel olarak kolay erişilebilir değildir.
+- Birden fazla ESP32 veya ESP8266 aynı projeye bağlıdır.
+- Firmware'de hata düzeltmesi, yeni özellik veya konfigürasyon değişikliği dağıtmak istersiniz.
+- Cihazların hangi sürümde çalıştığını merkezi olarak görmek istersiniz.
 
 OTA şu durumlarda dikkatli kullanılmalıdır:
 
-* Cihaz pil ile çalışıyor ve güncelleme sırasında kapanma riski varsa.
-* Wi-Fi bağlantısı sık sık kopuyorsa.
-* Firmware boyutu cihazın boş flash alanına çok yaklaşıyorsa.
-* Cihaz kritik bir sistemi kontrol ediyorsa ve bakım penceresi planlanmamışsa.
+- Cihaz pil ile çalışıyor ve güncelleme sırasında kapanma riski varsa.
+- Wi-Fi bağlantısı sık sık kopuyorsa.
+- Firmware boyutu cihazın boş flash alanına çok yaklaşıyorsa.
+- Cihaz kritik bir sistemi kontrol ediyorsa ve bakım penceresi planlanmamışsa.
 
 ## OTA akışı nasıl çalışır?
 
@@ -61,13 +65,13 @@ PxServ ile OTA akışı basitçe şu adımlardan oluşur:
 
 OTA kullanmadan önce şunların hazır olduğundan emin olun:
 
-* PxServ proje API anahtarı
-* Arduino IDE veya PlatformIO
-* ESP32 ya da ESP8266 kart desteği
-* `PxServ.h` Arduino kütüphanesi
-* Kararlı Wi-Fi bağlantısı
-* OTA destekli ilk firmware'in cihaza seri port üzerinden yüklenmiş olması
-* Firmware için yeterli flash alanı
+- PxServ proje API anahtarı
+- Arduino IDE veya PlatformIO
+- ESP32 ya da ESP8266 kart desteği
+- `PxServ.h` Arduino kütüphanesi
+- Kararlı Wi-Fi bağlantısı
+- OTA destekli ilk firmware'in cihaza seri port üzerinden yüklenmiş olması
+- Firmware için yeterli flash alanı
 
 ESP32 için Arduino IDE'de genellikle OTA destekleyen bir partition şeması seçilmelidir. Firmware boyutu büyüdükçe OTA için ayrılan alan yetersiz kalabilir. ESP8266 tarafında da flash boyutu ve OTA alanı seçimi önemlidir; büyük firmware'lerde `Flash Size` ayarını kontrol edin.
 
@@ -123,9 +127,9 @@ Arduino IDE, kart tipine ve ayarlara göre birden fazla çıktı dosyası oluşt
 
 Örnek dosya adları:
 
-* `sera-nem.ino.bin`
-* `proje-adi.ino.bin`
-* `akilli-role.ino.bin`
+- `sera-nem.ino.bin`
+- `proje-adi.ino.bin`
+- `akilli-role.ino.bin`
 
 {% hint style="info" %}
 ESP32 tarafında bootloader veya partition ile ilgili ek `.bin` dosyaları da görebilirsiniz. OTA güncellemesi için genellikle sadece proje-adi.ino.bin formatında olan `.bin` dosyası gereklidir
@@ -139,24 +143,24 @@ OTA sırasında cihazın kapanması veya Wi-Fi bağlantısının kopması günce
 
 **Cihaz güncellemeyi görmüyor**
 
-* Cihaz internete bağlı mı kontrol edin.
-* API anahtarının doğru projeye ait olduğundan emin olun.
-* `checkOtaFirmware()` fonksiyonu `loop()` içinde düzenli çağrılıyor mu bakın.
-* Firmware sürümü panelde aktif sürüm olarak işaretlenmiş mi bakın.
+- Cihaz internete bağlı mı kontrol edin.
+- API anahtarının doğru projeye ait olduğundan emin olun.
+- `checkOtaFirmware()` fonksiyonu `loop()` içinde düzenli çağrılıyor mu bakın.
+- Firmware sürümü panelde aktif sürüm olarak işaretlenmiş mi bakın.
 
 **Güncelleme başlıyor ama tamamlanmıyor**
 
-* Wi-Fi sinyal kalitesini kontrol edin.
-* Güç kaynağının yeterli olduğundan emin olun.
-* Firmware dosya boyutunun OTA alanına sığıp sığmadığını kontrol edin.
-* ESP8266 kullanıyorsanız flash boyutu, boş RAM ve firmware boyutunu tekrar gözden geçirin.
+- Wi-Fi sinyal kalitesini kontrol edin.
+- Güç kaynağının yeterli olduğundan emin olun.
+- Firmware dosya boyutunun OTA alanına sığıp sığmadığını kontrol edin.
+- ESP8266 kullanıyorsanız flash boyutu, boş RAM ve firmware boyutunu tekrar gözden geçirin.
 
 **Cihaz güncellemeden sonra açılmıyor**
 
-* Seri monitör ile boot loglarını okuyun.
-* Yanlış board için derlenmiş firmware yüklenmiş olabilir.
-* Kod, açılışta bloklanan bir Wi-Fi veya sensör bekleme döngüsüne girmiş olabilir.
-* Gerekirse cihazı USB/seri port üzerinden son kararlı firmware ile yeniden yükleyin.
+- Seri monitör ile boot loglarını okuyun.
+- Yanlış board için derlenmiş firmware yüklenmiş olabilir.
+- Kod, açılışta bloklanan bir Wi-Fi veya sensör bekleme döngüsüne girmiş olabilir.
+- Gerekirse cihazı USB/seri port üzerinden son kararlı firmware ile yeniden yükleyin.
 
 ## Kısa özet
 
