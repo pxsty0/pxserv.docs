@@ -4,15 +4,17 @@ icon: js
 
 # JavaScript / TypeScript Library
 
-The PxServ npm package provides a typed client for interacting with the PxServ API from Node.js or browser environments.
+The PxServ npm package is the official client for working with the PxServ API from Node.js and TypeScript projects. It is suitable for dashboards, automation services, backend applications, and helper services that process device data.
 
-**Supported operations:**
+## When should you use it?
 
-* Save data to the database
-* Toggle a value between `0` and `1`
-* Read data from the database
-* Fetch all stored data
-* Delete data from the database
+Use this library when you want to:
+
+* Write data to the PxServ database from a Node.js backend
+* Read device state from a web dashboard
+* Toggle a key between `0` and `1`
+* Fetch all project data in a single request
+* Monitor data from automation or cron jobs
 
 ## Installation
 
@@ -20,7 +22,39 @@ The PxServ npm package provides a typed client for interacting with the PxServ A
 npm install pxserv
 ```
 
-## Usage
+No additional package is required for TypeScript; the package can be used as a typed client.
+
+## Creating a Client
+
+Create the PxServ client with your project API key.
+
+{% tabs %}
+{% tab title="JavaScript" %}
+```javascript
+const PxServ = require("pxserv").default;
+
+const pxServ = new PxServ({
+  apiKey: "your_api_key",
+});
+```
+{% endtab %}
+
+{% tab title="TypeScript" %}
+```typescript
+import PxServ from "pxserv";
+
+const pxServ = new PxServ({
+  apiKey: "your_api_key",
+});
+```
+{% endtab %}
+{% endtabs %}
+
+{% hint style="warning" %}
+Do not expose your API key directly in public client-side code. For browser-based projects, route requests through your own backend service to protect the key.
+{% endhint %}
+
+## Basic Usage
 
 {% tabs %}
 {% tab title="JavaScript" %}
@@ -31,32 +65,28 @@ const pxServ = new PxServ({
   apiKey: "your_api_key",
 });
 
-(async () => {
+async function main() {
   try {
-    // Save data
-    const setResult = await pxServ.setData("temp", "24.3°C");
+    const setResult = await pxServ.setData("temperature", "24.3");
     console.log("Set:", setResult);
 
-    // Read data
-    const getResult = await pxServ.getData("temp");
+    const getResult = await pxServ.getData("temperature");
     console.log("Get:", getResult);
 
-    // Toggle data
-    const toggleResult = await pxServ.toggleData("light");
+    const toggleResult = await pxServ.toggleData("relay");
     console.log("Toggle:", toggleResult);
 
-    // Fetch all data
     const allData = await pxServ.getAll();
-    console.log("All:", allData);
+    console.log("All data:", allData);
 
-    // Remove data
-    await pxServ.removeData("temp");
-    await pxServ.removeData("light");
-    console.log("Removed.");
-  } catch (err) {
-    console.error("Error:", err);
+    const removeResult = await pxServ.removeData("temperature");
+    console.log("Remove:", removeResult);
+  } catch (error) {
+    console.error("PxServ request failed:", error);
   }
-})();
+}
+
+main();
 ```
 {% endtab %}
 
@@ -68,65 +98,89 @@ const pxServ = new PxServ({
   apiKey: "your_api_key",
 });
 
-(async () => {
+async function main(): Promise<void> {
   try {
-    // Save data
-    const setResult = await pxServ.setData("temp", "24.3°C");
+    const setResult = await pxServ.setData("temperature", "24.3");
     console.log("Set:", setResult);
 
-    // Read data
-    const getResult = await pxServ.getData("temp");
+    const getResult = await pxServ.getData("temperature");
     console.log("Get:", getResult);
 
-    // Toggle data
-    const toggleResult = await pxServ.toggleData("light");
+    const toggleResult = await pxServ.toggleData("relay");
     console.log("Toggle:", toggleResult);
 
-    // Fetch all data
     const allData = await pxServ.getAll();
-    console.log("All:", allData);
+    console.log("All data:", allData);
 
-    // Remove data
-    await pxServ.removeData("temp");
-    await pxServ.removeData("light");
-    console.log("Removed.");
-  } catch (err) {
-    console.error("Error:", err);
+    const removeResult = await pxServ.removeData("temperature");
+    console.log("Remove:", removeResult);
+  } catch (error) {
+    console.error("PxServ request failed:", error);
   }
-})();
+}
+
+main();
 ```
 {% endtab %}
 {% endtabs %}
 
-## Sample Output
+## Method Reference
+
+| Method | Description |
+|---|---|
+| `setData(key, value)` | Saves or updates a key-value pair in the database. |
+| `getData(key)` | Reads the current value of the specified key. |
+| `toggleData(key)` | Toggles the specified value between `0` and `1`. |
+| `getAll()` | Returns all data in the project in a single request. |
+| `removeData(key)` | Removes the specified key from the database. |
+
+## Response Shape
+
+Library methods generally return a result in the following shape:
 
 ```json
-Set: { "status": 200, "message": "OK", "data": {} }
-Get: {
+{
   "status": 200,
   "message": "OK",
-  "data": {
-    "lastUpdate": "2025-05-23T20:28:00.581Z",
-    "icon": "defaultIcon",
-    "value": "24.3°C"
-  }
+  "data": {}
 }
-Toggle: { "status": 200, "message": "OK", "data": {} }
-All: {
-  "status": 200,
-  "message": "OK",
-  "data": {
-    "temp": {
-      "lastUpdate": "2025-05-23T20:28:00.581Z",
-      "icon": "defaultIcon",
-      "value": "24.3°C"
-    },
-    "light": {
-      "lastUpdate": "2025-05-23T20:28:00.714Z",
-      "icon": "defaultIcon",
-      "value": "1"
-    }
-  }
-}
-Removed.
 ```
+
+Read operations may include the value and additional metadata in the `data` field:
+
+```json
+{
+  "status": 200,
+  "message": "OK",
+  "data": {
+    "lastUpdate": "2025-05-23T20:27:06.587Z",
+    "icon": "defaultIcon",
+    "value": "24.3"
+  }
+}
+```
+
+## Best Practices
+
+* Store your API key in an `.env` file or secure secret manager.
+* Validate user-provided `key` values before using them.
+* Send sensor values in a consistent format whenever possible.
+* Wrap requests in `try/catch` for error handling.
+* Avoid unnecessary `getAll()` calls in frequently running services.
+
+## Troubleshooting
+
+**I get an authorization error**
+
+* Make sure the API key belongs to the correct project.
+* Check that the key does not contain leading or trailing spaces.
+
+**Data is not returned in the format I expect**
+
+* Check which client wrote the data.
+* Make sure different value types are not being written to the same key.
+
+**I cannot hide my API key in the browser**
+
+* Do not place the API key directly in frontend code.
+* Create your own backend endpoint and perform PxServ operations from the backend.
