@@ -7,12 +7,14 @@ icon: cloud-arrow-up
 
 OTA (Over The Air), ESP32 ve ESP8266 tabanlı cihazlara yeni firmware'i USB kablosu takmadan, Wi-Fi üzerinden uzaktan yüklemenizi sağlar. PxServ OTA özelliği, PxServ Arduino kütüphanesi ile çalışan cihazların sürüm bilgisini takip etmeye, uygun güncellemeyi kontrol etmeye ve yeni kodu sahadaki cihaza güvenli şekilde aktarmaya odaklanır.
 
-- Amaç: ESP32 ve ESP8266 cihazlarına uzaktan kod güncellemesi göndermek.
-- Kullanıldığı yer: PxServ panelindeki OTA / cihaz güncelleme akışı ve PxServ Arduino kütüphanesi.
-- Desteklenen kartlar: ESP32 ve ESP8266 ailesindeki Wi-Fi destekli kartlar.
-- İlk kurulum şartı: Cihazlara OTA destekli ilk firmware bir kez USB/seri port üzerinden yüklenmelidir.
+* Amaç: ESP32 ve ESP8266 cihazlarına uzaktan kod güncellemesi göndermek.
+* Kullanıldığı yer: PxServ panelindeki OTA / cihaz güncelleme akışı ve PxServ Arduino kütüphanesi.
+* Desteklenen kartlar: ESP32 ve ESP8266 ailesindeki Wi-Fi destekli kartlar.
+* İlk kurulum şartı: Cihazlara OTA destekli ilk firmware bir kez USB/seri port üzerinden yüklenmelidir.
 
-> **ESP8266 uyarısı:** ESP8266 cihazlarda OTA desteği, çipin donanımsal kısıtlamaları nedeniyle ESP32 kadar sağlıklı ve konforlu olmayabilir. En iyi OTA deneyimi için yeterli flash alanına ve RAM kapasitesine sahip kartlar tercih edilmelidir. Firmware boyutu büyüdükçe ESP8266 tarafında güncelleme kararlılığı düşebilir.
+{% hint style="info" %}
+**ESP8266 uyarısı:** ESP8266 cihazlarda OTA desteği, çipin donanımsal kısıtlamaları nedeniyle ESP32 kadar sağlıklı ve konforlu olmayabilir. En iyi OTA deneyimi için yeterli flash alanına ve RAM kapasitesine sahip kartlar tercih edilmelidir. Firmware boyutu büyüdükçe ESP8266 tarafında güncelleme kararlılığı düşebilir.
+{% endhint %}
 
 ## Ne zaman kullanılır?
 
@@ -20,17 +22,17 @@ OTA özellikle sahada çalışan, kutu içine yerleştirilmiş veya erişilmesi 
 
 OTA şu durumlarda idealdir:
 
-- Cihaz fiziksel olarak kolay erişilebilir değildir.
-- Birden fazla ESP32 veya ESP8266 aynı projeye bağlıdır.
-- Firmware'de hata düzeltmesi, yeni özellik veya konfigürasyon değişikliği dağıtmak istersiniz.
-- Cihazların hangi sürümde çalıştığını merkezi olarak görmek istersiniz.
+* Cihaz fiziksel olarak kolay erişilebilir değildir.
+* Birden fazla ESP32 veya ESP8266 aynı projeye bağlıdır.
+* Firmware'de hata düzeltmesi, yeni özellik veya konfigürasyon değişikliği dağıtmak istersiniz.
+* Cihazların hangi sürümde çalıştığını merkezi olarak görmek istersiniz.
 
 OTA şu durumlarda dikkatli kullanılmalıdır:
 
-- Cihaz pil ile çalışıyor ve güncelleme sırasında kapanma riski varsa.
-- Wi-Fi bağlantısı sık sık kopuyorsa.
-- Firmware boyutu cihazın boş flash alanına çok yaklaşıyorsa.
-- Cihaz kritik bir sistemi kontrol ediyorsa ve bakım penceresi planlanmamışsa.
+* Cihaz pil ile çalışıyor ve güncelleme sırasında kapanma riski varsa.
+* Wi-Fi bağlantısı sık sık kopuyorsa.
+* Firmware boyutu cihazın boş flash alanına çok yaklaşıyorsa.
+* Cihaz kritik bir sistemi kontrol ediyorsa ve bakım penceresi planlanmamışsa.
 
 ## OTA akışı nasıl çalışır?
 
@@ -45,13 +47,7 @@ PxServ ile OTA akışı basitçe şu adımlardan oluşur:
 
 ## Arayüz görselleri
 
-<figure>
-  <img
-    src="https://i.imgur.com/1V6S58X.png"
-    alt="PxServ OTA paneli genel görünüm"
-  />
-  <figcaption><p>PxServ OTA paneli genel görünüm</p></figcaption>
-</figure>
+<figure><img src="../.gitbook/assets/resim (2).png" alt="PxServ OTA paneli genel görünüm"><figcaption></figcaption></figure>
 
 ## Temel kavramlar
 
@@ -65,13 +61,13 @@ PxServ ile OTA akışı basitçe şu adımlardan oluşur:
 
 OTA kullanmadan önce şunların hazır olduğundan emin olun:
 
-- PxServ proje API anahtarı
-- Arduino IDE veya PlatformIO
-- ESP32 ya da ESP8266 kart desteği
-- `PxServ.h` Arduino kütüphanesi
-- Kararlı Wi-Fi bağlantısı
-- OTA destekli ilk firmware'in cihaza seri port üzerinden yüklenmiş olması
-- Firmware için yeterli flash alanı
+* PxServ proje API anahtarı
+* Arduino IDE veya PlatformIO
+* ESP32 ya da ESP8266 kart desteği
+* `PxServ.h` Arduino kütüphanesi
+* Kararlı Wi-Fi bağlantısı
+* OTA destekli ilk firmware'in cihaza seri port üzerinden yüklenmiş olması
+* Firmware için yeterli flash alanı
 
 ESP32 için Arduino IDE'de genellikle OTA destekleyen bir partition şeması seçilmelidir. Firmware boyutu büyüdükçe OTA için ayrılan alan yetersiz kalabilir. ESP8266 tarafında da flash boyutu ve OTA alanı seçimi önemlidir; büyük firmware'lerde `Flash Size` ayarını kontrol edin.
 
@@ -107,41 +103,19 @@ Bu örnekte cihaz, mevcut firmware sürümünü `firmwareVersion` anahtarıyla P
 
 OTA ile yüklenen dosya, kaynak kod dosyası değil derlenmiş firmware dosyasıdır.
 
-> **Çok önemli:** OTA ile yükleyeceğiniz yeni firmware kodunun içinde de PxServ OTA kodları yer almalıdır. Yani yeni sürümde de `setDeviceFirmwareVersion()` ve `checkOtaFirmware()` akışı korunmalıdır. OTA kodunu yeni firmware'den çıkarırsanız cihaz o sürüme geçebilir, ancak sonraki güncellemeleri artık uzaktan alamaz; tekrar USB/seri port üzerinden müdahale etmeniz gerekir.
+{% hint style="info" %}
+**Çok önemli:** OTA ile yükleyeceğiniz yeni firmware kodunun içinde de PxServ OTA kodları yer almalıdır. Yani yeni sürümde de `setDeviceFirmwareVersion()` ve `checkOtaFirmware()` akışı korunmalıdır. OTA kodunu yeni firmware'den çıkarırsanız cihaz o sürüme geçebilir, ancak sonraki güncellemeleri artık uzaktan alamaz; tekrar USB/seri port üzerinden müdahale etmeniz gerekir.
+{% endhint %}
 
 Arduino IDE kullanıyorsanız PxServ paneline yükleyeceğiniz dosyayı **Sketch -> Export Compiled Binary** (**Eskiz -> Derlenmiş Dosyayı Dışa Aktar**) seçeneğiyle oluşturabilirsiniz. Bu işlem, açık olan Arduino projesini derler ve OTA için kullanılabilecek `.bin` dosyasını proje klasörüne çıkarır.
 
 ### Arduino IDE ile `.bin` firmware oluşturma
 
-**Görsel alanı: Export Compiled Binary menüsü**
+<figure><img src="../.gitbook/assets/Adsız tasarım (1).png" alt="Arduino IDE Export Compiled Binary menüsü"><figcaption></figcaption></figure>
 
-Buraya Arduino IDE üst menüsünde `Sketch > Export Compiled Binary` seçeneğinin göründüğü ekran görüntüsü eklenebilir. Bu görsel, kullanıcıların `.bin` dosyasını nereden üreteceğini hızlıca anlamasını sağlar.
+<figure><img src="../.gitbook/assets/Adsız tasarım(1).png" alt="Arduino IDE Export Compiled Binary menüsü"><figcaption></figcaption></figure>
 
-```html
-<figure>
-  <img
-    src="../.gitbook/assets/ota-export-compiled-binary-tr.png"
-    alt="Arduino IDE Export Compiled Binary menüsü"
-  />
-  <figcaption><p>Arduino IDE Export Compiled Binary menüsü</p></figcaption>
-</figure>
-```
-
-**Görsel alanı: Oluşan `.bin` dosyası**
-
-Buraya derleme sonrasında sketch klasöründe oluşan `.bin` firmware dosyasını gösteren dosya yöneticisi veya Arduino IDE çıktı ekranı eklenebilir.
-
-```html
-<figure>
-  <img
-    src="../.gitbook/assets/ota-compiled-binary-dosyasi-tr.png"
-    alt="Arduino IDE ile oluşturulan bin firmware dosyası"
-  />
-  <figcaption>
-    <p>Arduino IDE ile oluşturulan .bin firmware dosyası</p>
-  </figcaption>
-</figure>
-```
+<figure><img src="../.gitbook/assets/resim (4).png" alt="Arduino IDE ile oluşturulan .bin firmware dosyası"><figcaption></figcaption></figure>
 
 ### Doğru `.bin` dosyasını seçme
 
@@ -149,11 +123,13 @@ Arduino IDE, kart tipine ve ayarlara göre birden fazla çıktı dosyası oluşt
 
 Örnek dosya adları:
 
-- `sera-nem-esp32.ino.bin`
-- `depo-kapi-esp8266.ino.bin`
-- `akilli-role.ino.bin`
+* `sera-nem.ino.bin`
+* `proje-adi.ino.bin`
+* `akilli-role.ino.bin`
 
-ESP32 tarafında bootloader veya partition ile ilgili ek `.bin` dosyaları da görebilirsiniz. OTA güncellemesi için genellikle uygulama firmware'i gerekir; bootloader veya partition dosyalarını OTA firmware dosyası olarak yüklemeyin.
+{% hint style="info" %}
+ESP32 tarafında bootloader veya partition ile ilgili ek `.bin` dosyaları da görebilirsiniz. OTA güncellemesi için genellikle sadece proje-adi.ino.bin formatında olan `.bin` dosyası gereklidir
+{% endhint %}
 
 ## Bağlantı ve güç kararlılığı
 
@@ -163,27 +139,28 @@ OTA sırasında cihazın kapanması veya Wi-Fi bağlantısının kopması günce
 
 **Cihaz güncellemeyi görmüyor**
 
-- Cihaz internete bağlı mı kontrol edin.
-- API anahtarının doğru projeye ait olduğundan emin olun.
-- `checkOtaFirmware()` fonksiyonu `loop()` içinde düzenli çağrılıyor mu bakın.
-- Firmware sürümü panelde aktif sürüm olarak işaretlenmiş mi bakın.
+* Cihaz internete bağlı mı kontrol edin.
+* API anahtarının doğru projeye ait olduğundan emin olun.
+* `checkOtaFirmware()` fonksiyonu `loop()` içinde düzenli çağrılıyor mu bakın.
+* Firmware sürümü panelde aktif sürüm olarak işaretlenmiş mi bakın.
 
 **Güncelleme başlıyor ama tamamlanmıyor**
 
-- Wi-Fi sinyal kalitesini kontrol edin.
-- Güç kaynağının yeterli olduğundan emin olun.
-- Firmware dosya boyutunun OTA alanına sığıp sığmadığını kontrol edin.
-- ESP8266 kullanıyorsanız flash boyutu, boş RAM ve firmware boyutunu tekrar gözden geçirin.
+* Wi-Fi sinyal kalitesini kontrol edin.
+* Güç kaynağının yeterli olduğundan emin olun.
+* Firmware dosya boyutunun OTA alanına sığıp sığmadığını kontrol edin.
+* ESP8266 kullanıyorsanız flash boyutu, boş RAM ve firmware boyutunu tekrar gözden geçirin.
 
 **Cihaz güncellemeden sonra açılmıyor**
 
-- Seri monitör ile boot loglarını okuyun.
-- Yanlış board için derlenmiş firmware yüklenmiş olabilir.
-- Kod, açılışta bloklanan bir Wi-Fi veya sensör bekleme döngüsüne girmiş olabilir.
-- Gerekirse cihazı USB/seri port üzerinden son kararlı firmware ile yeniden yükleyin.
+* Seri monitör ile boot loglarını okuyun.
+* Yanlış board için derlenmiş firmware yüklenmiş olabilir.
+* Kod, açılışta bloklanan bir Wi-Fi veya sensör bekleme döngüsüne girmiş olabilir.
+* Gerekirse cihazı USB/seri port üzerinden son kararlı firmware ile yeniden yükleyin.
 
 ## Kısa özet
 
 PxServ OTA, ESP32 ve ESP8266 projelerinde sahadaki cihazları yönetilebilir hale getirir. İlk OTA destekli firmware seri porttan yüklendikten sonra, sonraki güncellemeler PxServ üzerinden uzaktan dağıtılabilir. Sağlam yeterli flash alanı ve kontrollü dağıtım süreci OTA'nın güvenilir çalışması için en önemli parçalardır.
 
 Detaylı Arduino kullanımı için bkz: [Arduino Kütüphanesi](arduino-kutuphanesi.md)
+
