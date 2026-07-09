@@ -8,6 +8,12 @@
 * [Arduino Kütüphanesi](tr/arduino-kutuphanesi.md)
 * [JavaScript / TypeScript Kütüphanesi](tr/javascript-typescript-kutuphanesi.md)
 * [Rust Kütüphanesi](tr/rust-kutuphanesi.md)
+* [Gerçek Zamanlı Bağlantı (Socket.IO)](tr/gercek-zamanli-baglanti-socket.io.md)
+* [Harita Özelliği](tr/harita-ozelligi.md)
+* [OTA Özelliği](tr/ota-ozelligi.md)
+* [Örnek Projeler](tr/ornek-projeler/README.md)
+  * [Ev Güvenlik Sistemi](tr/ornek-projeler/ev-guvenlik-sistemi.md)
+  * [Akıllı Sıcaklık Monitörü](tr/ornek-projeler/akilli-sicaklik-monitoru.md)
 * [REST API](tr/rest-api/README.md)
   * [Veritabanı](tr/rest-api/veritabani/README.md)
     * [Veri Kaydetme](tr/rest-api/veritabani/veri-kaydetme.md)
@@ -15,12 +21,6 @@
     * [Veri Okuma](tr/rest-api/veritabani/veri-okuma.md)
     * [Tüm Verileri Okuma](tr/rest-api/veritabani/tum-verileri-okuma.md)
     * [Veri Kaldırma](tr/rest-api/veritabani/veri-kaldirma.md)
-* [Gerçek Zamanlı Bağlantı (Socket.IO)](tr/gercek-zamanli-baglanti-socket.io.md)
-* [Harita Özelliği](tr/harita-ozelligi.md)
-* [OTA Özelliği](tr/ota-ozelligi.md)
-* [Örnek Projeler](tr/ornek-projeler/README.md)
-  * [Ev Güvenlik Sistemi](tr/ornek-projeler/ev-guvenlik-sistemi.md)
-  * [Akıllı Sıcaklık Monitörü](tr/ornek-projeler/akilli-sicaklik-monitoru.md)
 
 ## 🇺🇲 English <a href="#en" id="en"></a>
 
