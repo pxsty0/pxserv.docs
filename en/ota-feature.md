@@ -6,7 +6,7 @@ icon: cloud-arrow-up
 # OTA Feature
 
 {% hint style="warning" %}
-To use the OTA feature, you must have **version 1.3.0 or newer** of the PxServ Arduino library installed. Older versions may not include the `setDeviceFirmwareVersion()`, `getDeviceFirmwareVersion()`, and `checkOtaFirmware()` functions.
+To use the OTA feature, you must have **version 1.3.0 or newer** of the PxServ Arduino library installed.
 {% endhint %}
 
 OTA (Over The Air) lets you upload new firmware to ESP32 and ESP8266-based devices remotely over Wi-Fi, without connecting a USB cable. The PxServ OTA feature focuses on tracking the firmware version of devices that use the PxServ Arduino library, checking for suitable updates, and safely delivering new code to devices in the field.

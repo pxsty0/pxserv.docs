@@ -6,7 +6,7 @@ icon: cloud-arrow-up
 # OTA Özelliği
 
 {% hint style="warning" %}
-OTA özelliğini kullanabilmek için PxServ Arduino kütüphanesinin **1.3.0 veya daha yeni** bir sürümü yüklü olmalıdır. Daha eski sürümlerde `setDeviceFirmwareVersion()`, `getDeviceFirmwareVersion()` ve `checkOtaFirmware()` fonksiyonları bulunmayabilir.
+OTA özelliğini kullanabilmek için PxServ Arduino kütüphanesinin **1.3.0 veya daha yeni** bir sürümü yüklü olmalıdır.
 {% endhint %}
 
 OTA (Over The Air), ESP32 ve ESP8266 tabanlı cihazlara yeni firmware'i USB kablosu takmadan, Wi-Fi üzerinden uzaktan yüklemenizi sağlar. PxServ OTA özelliği, PxServ Arduino kütüphanesiyle çalışan cihazların firmware sürümünü takip etmeye, aktif güncellemeleri kontrol etmeye ve yeni kodu sahadaki cihazlara güvenli şekilde dağıtmaya odaklanır.
