@@ -111,7 +111,7 @@ Arduino IDE kullanıyorsanız PxServ paneline yükleyeceğiniz dosyayı **Sketch
 
 ### Arduino IDE ile `.bin` firmware oluşturma
 
-<figure><img src="../.gitbook/assets/Adsız tasarım (1).png" alt="Arduino IDE Export Compiled Binary menüsü"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Adsız tasarım.png" alt="Arduino IDE Export Compiled Binary menüsü"><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/Adsız tasarım(1).png" alt="Arduino IDE Export Compiled Binary menüsü"><figcaption></figcaption></figure>
 
@@ -163,4 +163,3 @@ OTA sırasında cihazın kapanması veya Wi-Fi bağlantısının kopması günce
 PxServ OTA, ESP32 ve ESP8266 projelerinde sahadaki cihazları yönetilebilir hale getirir. İlk OTA destekli firmware seri porttan yüklendikten sonra, sonraki güncellemeler PxServ üzerinden uzaktan dağıtılabilir. Sağlam yeterli flash alanı ve kontrollü dağıtım süreci OTA'nın güvenilir çalışması için en önemli parçalardır.
 
 Detaylı Arduino kullanımı için bkz: [Arduino Kütüphanesi](arduino-kutuphanesi.md)
-

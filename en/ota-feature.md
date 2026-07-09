@@ -47,7 +47,9 @@ The PxServ OTA flow works as follows:
 
 ## Interface Screenshots
 
-<figure><img src="../.gitbook/assets/resim (2).png" alt="PxServ OTA panel overview"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/resim (8).png" alt="PxServ OTA panel overview"><figcaption></figcaption></figure>
+
+
 
 ## Core Concepts
 
@@ -111,11 +113,9 @@ If you use Arduino IDE, you can create the file to upload to the PxServ panel wi
 
 ### Creating `.bin` firmware with Arduino IDE
 
-<figure><img src="../.gitbook/assets/Adsız tasarım (1).png" alt="Arduino IDE Export Compiled Binary menu"><figcaption></figcaption></figure>
-
 <figure><img src="../.gitbook/assets/Adsız tasarım(1).png" alt="Arduino IDE Export Compiled Binary menu"><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/resim (4).png" alt="Firmware .bin file generated with Arduino IDE"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/resim (6).png" alt=""><figcaption></figcaption></figure>
 
 ### Choosing the correct `.bin` file
 
@@ -163,4 +163,3 @@ If the device powers off or loses Wi-Fi during OTA, the update may fail. ESP32 a
 PxServ OTA makes ESP32 and ESP8266 projects easier to manage in the field. After the first OTA-enabled firmware is uploaded over serial, later updates can be distributed remotely through PxServ. Sufficient flash space and a controlled rollout process are among the most important factors for reliable OTA operation.
 
 For detailed Arduino usage, see: [Arduino Library](arduino-library.md)
-
