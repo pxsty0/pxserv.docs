@@ -1,0 +1,17 @@
+---
+title: Database API
+description: Manage PxServ project data through the REST API.
+asIndexPage: true
+---
+
+# Database API
+
+Choose the operation you want to perform on your PxServ project data.
+
+<div className="api-endpoint-list">
+  <a className="api-endpoint" href="/en/rest-api/database/all-data-fetching/"><span className="api-method api-method--get">GET</span><span className="api-endpoint-info"><strong>Retrieve All Data</strong><small>Get all data stored in the project.</small></span><code>/database/getAll</code><b>→</b></a>
+  <a className="api-endpoint" href="/en/rest-api/database/data-fetching/"><span className="api-method api-method--post">POST</span><span className="api-endpoint-info"><strong>Retrieve Data</strong><small>Read the current value of a specified key.</small></span><code>/database/getData</code><b>→</b></a>
+  <a className="api-endpoint" href="/en/rest-api/database/data-saving/"><span className="api-method api-method--post">POST</span><span className="api-endpoint-info"><strong>Store Data</strong><small>Create a key or update its value.</small></span><code>/database/setData</code><b>→</b></a>
+  <a className="api-endpoint" href="/en/rest-api/database/data-toggle/"><span className="api-method api-method--post">POST</span><span className="api-endpoint-info"><strong>Toggle Data</strong><small>Switch a value between 0 and 1.</small></span><code>/database/toggleData</code><b>→</b></a>
+  <a className="api-endpoint" href="/en/rest-api/database/data-removing/"><span className="api-method api-method--post">POST</span><span className="api-endpoint-info"><strong>Remove Data</strong><small>Remove a specified key from the project.</small></span><code>/database/removeData</code><b>→</b></a>
+</div>

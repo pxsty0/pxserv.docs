@@ -1,0 +1,107 @@
+---
+title: PxServ Dokümantasyonu
+description: API, SDK, gerçek zamanlı bağlantı ve OTA ile yazılım ve donanım projelerinizi PxServ'e bağlayın.
+theme:
+  breadcrumb: false
+  copyPage: false
+  layout: full
+  pagination: false
+  toc: false
+---
+
+<div className="docs-hero-shell">
+  <div className="docs-hero">
+    <div className="docs-hero-content">
+      <h1>Fikirden çalışan IoT ürününe, <span>tek platformda.</span></h1>
+      <div className="docs-hero-copy">
+        Cihazlarınızı güçlü API’ler, gerçek zamanlı veri akışı ve uzaktan
+        güncelleme araçlarıyla dakikalar içinde üretime hazırlayın.
+      </div>
+      <div className="docs-hero-actions">
+        <a className="docs-button docs-button--primary" href="/tr/hizli-baslangic/">Dokümantasyona başlayın <span>→</span></a>
+        <a className="docs-button" href="/tr/rest-api/">REST API <span>↗</span></a>
+      </div>
+      <div className="docs-hero-tags">
+        <span>Arduino</span><span>TypeScript</span><span>Rust</span><span>Socket.IO</span>
+      </div>
+    </div>
+    <div className="docs-code-window" aria-label="PxServ API example">
+      <div className="docs-code-toolbar">
+        <div><i /><i /><i /></div><span>device.ts</span><b>PxServ API</b>
+      </div>
+      <div className="docs-code-body">
+        <div><em>01</em><code><strong>import</strong> PxServ <strong>from</strong> <u>'pxserv'</u></code></div>
+        <div><em>02</em><code /></div>
+        <div><em>03</em><code><strong>const</strong> pxServ = <strong>new</strong> PxServ(&#123;</code></div>
+        <div><em>04</em><code>  apiKey: process.env.<b>PXSERV_API_KEY</b>!,</code></div>
+        <div><em>05</em><code /></div>
+        <div><em>06</em><code>&#125;)</code></div>
+        <div><em>07</em><code /></div>
+        <div><em>08</em><code><strong>await</strong> pxServ.setData(</code></div>
+        <div><em>09</em><code>  <u>'temperature'</u>, <u>'24.6'</u></code></div>
+        <div><em>10</em><code>)</code></div>
+      </div>
+      <div className="docs-code-result"><span>●</span> Resmî JavaScript / TypeScript istemcisi <b>pxserv</b></div>
+    </div>
+  </div>
+</div>
+
+<div className="docs-section-heading">
+  <span>SDK’lar</span>
+  <h2>Kullandığınız teknolojiyle başlayın</h2>
+  <div>Donanım, backend ve yerel uygulamalar için hazırlanan PxServ istemcilerinden birini seçin.</div>
+</div>
+
+<div className="docs-feature-grid">
+  <a className="docs-feature-card" data-tone="arduino" href="/tr/arduino-kutuphanesi/">
+    <div className="docs-feature-top"><span className="docs-feature-icon"><TechnologyLogo name="arduino" /></span><span className="docs-feature-arrow">↗</span></div>
+    <h3>Arduino</h3>
+    <div className="docs-feature-copy">ESP32, ESP8266 ve Wi-Fi destekli kartlardan doğrudan veri gönderin.</div>
+  </a>
+  <a className="docs-feature-card" data-tone="typescript" href="/tr/javascript-typescript-kutuphanesi/">
+    <div className="docs-feature-top"><span className="docs-feature-icon"><TechnologyLogo name="typescript" /></span><span className="docs-feature-arrow">↗</span></div>
+    <h3>JavaScript / TypeScript</h3>
+    <div className="docs-feature-copy">Node.js servisleri, otomasyonlar ve backend uygulamaları geliştirin.</div>
+  </a>
+  <a className="docs-feature-card" data-tone="rust" href="/tr/rust-kutuphanesi/">
+    <div className="docs-feature-top"><span className="docs-feature-icon"><TechnologyLogo name="rust" /></span><span className="docs-feature-arrow">↗</span></div>
+    <h3>Rust</h3>
+    <div className="docs-feature-copy">CLI araçları, veri servisleri ve yerel uygulamalar oluşturun.</div>
+  </a>
+</div>
+
+<div className="docs-section-heading docs-section-heading--compact">
+  <span>Özellikler</span>
+  <h2>Cihazlarınızı uzaktan yönetin</h2>
+</div>
+
+<div className="docs-feature-grid docs-feature-grid--two">
+  <a className="docs-feature-card" href="/tr/harita-ozelligi/">
+    <div className="docs-feature-top"><span className="docs-feature-icon"><FeatureIcon name="map" /></span><span className="docs-feature-arrow">↗</span></div>
+    <h3>Harita ve Konum</h3>
+    <div className="docs-feature-copy">Cihaz konumlarını ve temel telemetriyi harita üzerinde izleyin.</div>
+  </a>
+  <a className="docs-feature-card" href="/tr/ota-ozelligi/">
+    <div className="docs-feature-top"><span className="docs-feature-icon"><FeatureIcon name="ota" /></span><span className="docs-feature-arrow">↗</span></div>
+    <h3>OTA Güncellemeleri</h3>
+    <div className="docs-feature-copy">ESP32 ve ESP8266 firmware’ini sahaya gitmeden güncelleyin.</div>
+  </a>
+</div>
+
+<div className="docs-section-heading docs-section-heading--compact">
+  <span>API’ler</span>
+  <h2>Uygulamalarınızı PxServ’e bağlayın</h2>
+</div>
+
+<div className="docs-feature-grid docs-feature-grid--two">
+  <a className="docs-feature-card" href="/tr/gercek-zamanli-baglanti/">
+    <div className="docs-feature-top"><span className="docs-feature-icon"><FeatureIcon name="realtime" /></span><span className="docs-feature-arrow">↗</span></div>
+    <h3>Gerçek Zamanlı Bağlantı</h3>
+    <div className="docs-feature-copy">Socket.IO ile çift yönlü canlı veri akışlarını dinleyin.</div>
+  </a>
+  <a className="docs-feature-card" href="/tr/rest-api/">
+    <div className="docs-feature-top"><span className="docs-feature-icon"><FeatureIcon name="api" /></span><span className="docs-feature-arrow">↗</span></div>
+    <h3>REST API</h3>
+    <div className="docs-feature-copy">Her platformdan HTTP endpoint’leri ile PxServ’e güvenli biçimde bağlanın.</div>
+  </a>
+</div>

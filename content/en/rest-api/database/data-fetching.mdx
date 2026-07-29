@@ -1,0 +1,43 @@
+# Retrieve Data
+
+**POST** `https://api.pxserv.net/database/getData`
+
+This endpoint returns the value stored under a specified key in the PxServ project database.
+
+**Headers**
+
+| Key             | Value              |
+| --------------- | ------------------ |
+| Content-Type    | `application/json` |
+| apikey          | `Project API Key`  |
+| Accept-Language | `tr` \| `en`       |
+
+**Body**
+
+| Key   | Type   | Description |
+| ----- | ------ | ----------- |
+| `key` | string | Data key    |
+
+**Response**
+
+#### 200
+
+```json
+{
+  "status": 200,
+  "message": "OK",
+  "data": {
+    "value": "<VALUE>"
+  }
+}
+```
+
+#### Error
+
+```json
+{
+  "status": 401,
+  "message": "Invalid API key.",
+  "data": {}
+}
+```

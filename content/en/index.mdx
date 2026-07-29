@@ -1,0 +1,79 @@
+---
+title: PxServ Documentation
+description: Connect software and hardware projects to PxServ with APIs, SDKs, real-time connections, and OTA updates.
+theme:
+  breadcrumb: false
+  copyPage: false
+  layout: full
+  pagination: false
+  toc: false
+---
+
+<div className="docs-hero-shell">
+  <div className="docs-hero">
+    <div className="docs-hero-content">
+      <h1>From idea to a connected product, <span>on one platform.</span></h1>
+      <div className="docs-hero-copy">
+        Take devices to production in minutes with powerful APIs, real-time
+        data streams, and remote update tooling.
+      </div>
+      <div className="docs-hero-actions">
+        <a className="docs-button docs-button--primary" href="/en/quick-start/">Start with the docs <span>→</span></a>
+        <a className="docs-button" href="/en/rest-api/">REST API <span>↗</span></a>
+      </div>
+      <div className="docs-hero-tags">
+        <span>Arduino</span><span>TypeScript</span><span>Rust</span><span>Socket.IO</span>
+      </div>
+    </div>
+    <div className="docs-code-window" aria-label="PxServ API example">
+      <div className="docs-code-toolbar">
+        <div><i /><i /><i /></div><span>device.ts</span><b>PxServ API</b>
+      </div>
+      <div className="docs-code-body">
+        <div><em>01</em><code><strong>import</strong> PxServ <strong>from</strong> <u>'pxserv'</u></code></div>
+        <div><em>02</em><code /></div>
+        <div><em>03</em><code><strong>const</strong> pxServ = <strong>new</strong> PxServ(&#123;</code></div>
+        <div><em>04</em><code>  apiKey: process.env.<b>PXSERV_API_KEY</b>!,</code></div>
+        <div><em>05</em><code /></div>
+        <div><em>06</em><code>&#125;)</code></div>
+        <div><em>07</em><code /></div>
+        <div><em>08</em><code><strong>await</strong> pxServ.setData(</code></div>
+        <div><em>09</em><code>  <u>'temperature'</u>, <u>'24.6'</u></code></div>
+        <div><em>10</em><code>)</code></div>
+      </div>
+      <div className="docs-code-result"><span>●</span> Official JavaScript / TypeScript client <b>pxserv</b></div>
+    </div>
+  </div>
+</div>
+
+<div className="docs-section-heading">
+  <span>SDKs</span>
+  <h2>Start with your technology</h2>
+  <div>Choose a PxServ client built for hardware, backend services, or native applications.</div>
+</div>
+
+<div className="docs-feature-grid">
+  <a className="docs-feature-card" data-tone="arduino" href="/en/arduino-library/"><div className="docs-feature-top"><span className="docs-feature-icon"><TechnologyLogo name="arduino" /></span><span className="docs-feature-arrow">↗</span></div><h3>Arduino</h3><div className="docs-feature-copy">Send data directly from ESP32, ESP8266, and Wi-Fi enabled boards.</div></a>
+  <a className="docs-feature-card" data-tone="typescript" href="/en/javascript-typescript-library/"><div className="docs-feature-top"><span className="docs-feature-icon"><TechnologyLogo name="typescript" /></span><span className="docs-feature-arrow">↗</span></div><h3>JavaScript / TypeScript</h3><div className="docs-feature-copy">Build Node.js services, automation, and backend applications.</div></a>
+  <a className="docs-feature-card" data-tone="rust" href="/en/rust-library/"><div className="docs-feature-top"><span className="docs-feature-icon"><TechnologyLogo name="rust" /></span><span className="docs-feature-arrow">↗</span></div><h3>Rust</h3><div className="docs-feature-copy">Create CLI tools, data services, and native applications.</div></a>
+</div>
+
+<div className="docs-section-heading docs-section-heading--compact">
+  <span>Features</span>
+  <h2>Manage devices remotely</h2>
+</div>
+
+<div className="docs-feature-grid docs-feature-grid--two">
+  <a className="docs-feature-card" href="/en/map-feature/"><div className="docs-feature-top"><span className="docs-feature-icon"><FeatureIcon name="map" /></span><span className="docs-feature-arrow">↗</span></div><h3>Maps and Location</h3><div className="docs-feature-copy">Monitor device locations and essential telemetry on a map.</div></a>
+  <a className="docs-feature-card" href="/en/ota-feature/"><div className="docs-feature-top"><span className="docs-feature-icon"><FeatureIcon name="ota" /></span><span className="docs-feature-arrow">↗</span></div><h3>OTA Updates</h3><div className="docs-feature-copy">Update ESP32 and ESP8266 firmware without visiting the device.</div></a>
+</div>
+
+<div className="docs-section-heading docs-section-heading--compact">
+  <span>APIs</span>
+  <h2>Connect applications to PxServ</h2>
+</div>
+
+<div className="docs-feature-grid docs-feature-grid--two">
+  <a className="docs-feature-card" href="/en/realtime-connection/"><div className="docs-feature-top"><span className="docs-feature-icon"><FeatureIcon name="realtime" /></span><span className="docs-feature-arrow">↗</span></div><h3>Real-Time Connection</h3><div className="docs-feature-copy">Listen to bidirectional live data streams through Socket.IO.</div></a>
+  <a className="docs-feature-card" href="/en/rest-api/"><div className="docs-feature-top"><span className="docs-feature-icon"><FeatureIcon name="api" /></span><span className="docs-feature-arrow">↗</span></div><h3>REST API</h3><div className="docs-feature-copy">Connect to PxServ securely from any platform through HTTP endpoints.</div></a>
+</div>

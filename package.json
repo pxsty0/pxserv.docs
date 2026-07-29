@@ -1,0 +1,32 @@
+{
+  "name": "pxserv-docs",
+  "version": "2.0.0",
+  "author": {
+    "name": "PxServ - Mustafa KÖK",
+    "email": "support@pxserv.net",
+    "url": "https://pxserv.net"
+  },
+  "scripts": {
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
+    "postbuild": "next build --webpack && pagefind --site .next/server/app --output-path public/_pagefind && pagefind --site .next/server/app --output-path out/_pagefind",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "16.2.10",
+    "nextra": "4.6.0",
+    "nextra-theme-docs": "4.6.0",
+    "react": "19.2.7",
+    "react-dom": "19.2.7"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "pagefind": "^1.5.2",
+    "typescript": "^5.9.0"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  }
+}

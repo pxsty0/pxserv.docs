@@ -1,0 +1,41 @@
+# Veri Kaldırma
+
+**POST** `https://api.pxserv.net/database/removeData`
+
+Bu endpoint, belirtilen anahtarda kayıtlı veriyi PxServ proje veritabanından kaldırır.
+
+**Headers**
+
+| Anahtar         | Değer              |
+| --------------- | ------------------ |
+| Content-Type    | `application/json` |
+| apikey          | `Proje API Anahtarı` |
+| Accept-Language | `tr` \| `en`       |
+
+**Body**
+
+| Anahtar | Tip    | Açıklama      |
+| ------- | ------ | ------------- |
+| `key`   | string | Veri anahtarı |
+
+**Response**
+
+#### 200
+
+```json
+{
+  "status": 200,
+  "message": "OK",
+  "data": {}
+}
+```
+
+#### Error
+
+```json
+{
+  "status": 401,
+  "message": "Invalid API key.",
+  "data": {}
+}
+```

@@ -1,0 +1,17 @@
+---
+title: Veritabanı API’si
+description: PxServ proje verilerini REST API üzerinden yönetin.
+asIndexPage: true
+---
+
+# Veritabanı API’si
+
+PxServ proje verileriniz için gerçekleştirmek istediğiniz işlemi seçin.
+
+<div className="api-endpoint-list">
+  <a className="api-endpoint" href="/tr/rest-api/veritabani/tum-verileri-okuma/"><span className="api-method api-method--get">GET</span><span className="api-endpoint-info"><strong>Tüm Verileri Okuma</strong><small>Projede kayıtlı verilerin tamamını alın.</small></span><code>/database/getAll</code><b>→</b></a>
+  <a className="api-endpoint" href="/tr/rest-api/veritabani/veri-okuma/"><span className="api-method api-method--post">POST</span><span className="api-endpoint-info"><strong>Veri Okuma</strong><small>Belirtilen anahtarın güncel değerini okuyun.</small></span><code>/database/getData</code><b>→</b></a>
+  <a className="api-endpoint" href="/tr/rest-api/veritabani/veri-kaydetme/"><span className="api-method api-method--post">POST</span><span className="api-endpoint-info"><strong>Veri Kaydetme</strong><small>Bir anahtar oluşturun veya değerini güncelleyin.</small></span><code>/database/setData</code><b>→</b></a>
+  <a className="api-endpoint" href="/tr/rest-api/veritabani/veri-gecisi/"><span className="api-method api-method--post">POST</span><span className="api-endpoint-info"><strong>Veri Geçişi</strong><small>Bir değeri 0 ile 1 arasında değiştirin.</small></span><code>/database/toggleData</code><b>→</b></a>
+  <a className="api-endpoint" href="/tr/rest-api/veritabani/veri-kaldirma/"><span className="api-method api-method--post">POST</span><span className="api-endpoint-info"><strong>Veri Kaldırma</strong><small>Belirtilen anahtarı projeden kaldırın.</small></span><code>/database/removeData</code><b>→</b></a>
+</div>

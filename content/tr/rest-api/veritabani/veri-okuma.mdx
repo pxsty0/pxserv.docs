@@ -1,0 +1,43 @@
+# Veri Okuma
+
+**POST** `https://api.pxserv.net/database/getData`
+
+Bu endpoint, PxServ proje veritabanında belirtilen anahtar altında kayıtlı değeri döndürür.
+
+**Headers**
+
+| Anahtar         | Değer              |
+| --------------- | ------------------ |
+| Content-Type    | `application/json` |
+| apikey          | `Proje API Anahtarı` |
+| Accept-Language | `tr` \| `en`       |
+
+**Body**
+
+| Anahtar | Tip    | Açıklama      |
+| ------- | ------ | ------------- |
+| `key`   | string | Veri anahtarı |
+
+**Response**
+
+#### 200
+
+```json
+{
+  "status": 200,
+  "message": "OK",
+  "data": {
+    "value": "<VALUE>"
+  }
+}
+```
+
+#### Error
+
+```json
+{
+  "status": 401,
+  "message": "Invalid API key.",
+  "data": {}
+}
+```

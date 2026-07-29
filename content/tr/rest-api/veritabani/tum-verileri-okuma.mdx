@@ -1,0 +1,40 @@
+# Tüm Verileri Okuma
+
+**GET** `https://api.pxserv.net/database/getAll`
+
+Bu endpoint, PxServ proje veritabanında kayıtlı tüm verileri döndürür.
+
+**Headers**
+
+| Anahtar         | Değer              |
+| --------------- | ------------------ |
+| Content-Type    | `application/json` |
+| apikey          | `Proje API Anahtarı` |
+| Accept-Language | `tr` \| `en`       |
+
+**Body**
+
+**Response**
+
+#### 200
+
+```json
+{
+  "status": 200,
+  "message": "OK",
+  "data": {
+    "exampleData1": "exampleValue1",
+    "exampleData2": "exampleValue2"
+  }
+}
+```
+
+#### Error
+
+```json
+{
+  "status": 401,
+  "message": "Invalid API key.",
+  "data": {}
+}
+```

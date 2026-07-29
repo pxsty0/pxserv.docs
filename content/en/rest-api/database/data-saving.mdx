@@ -1,0 +1,42 @@
+# Store Data
+
+**POST** `https://api.pxserv.net/database/setData`
+
+This endpoint creates a key or updates its value in the PxServ project database.
+
+**Headers**
+
+| Key             | Value              |
+| --------------- | ------------------ |
+| Content-Type    | `application/json` |
+| apikey          | `Project API Key`  |
+| Accept-Language | `tr` \| `en`       |
+
+**Body**
+
+| Key     | Type   | Description |
+| ------- | ------ | ----------- |
+| `key`   | string | Data key    |
+| `value` | string | Data value  |
+
+**Response**
+
+#### 200
+
+```json
+{
+  "status": 200,
+  "message": "OK",
+  "data": {}
+}
+```
+
+#### Error
+
+```json
+{
+  "status": 401,
+  "message": "Invalid API key.",
+  "data": {}
+}
+```
