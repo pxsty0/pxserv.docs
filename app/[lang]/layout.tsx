@@ -52,6 +52,14 @@ export const metadata: Metadata = {
     template: "%s | PxServ Docs",
   },
   description: translations.tr.description,
+  openGraph: {
+    images: ["https://i.imgur.com/hDteELW.png"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["https://i.imgur.com/hDteELW.png"],
+  },
   icons: {
     icon: [{ url: "/images/shared/logo.webp", type: "image/webp" }],
     shortcut: "/images/shared/logo.webp",
@@ -94,7 +102,9 @@ export default async function LocaleLayout({
                     height="28"
                   />
                   <span>PxServ</span>
-                  <span className="pxserv-logo__suffix">{text.brandSuffix}</span>
+                  <span className="pxserv-logo__suffix">
+                    {text.brandSuffix}
+                  </span>
                 </span>
               }
               logoLink={`/${lang}/`}
