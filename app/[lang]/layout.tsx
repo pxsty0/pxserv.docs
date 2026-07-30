@@ -87,7 +87,7 @@ export default async function LocaleLayout({
       <body suppressHydrationWarning>
         <SidebarLanguageSwitch />
         <Layout
-          docsRepositoryBase="https://github.com/pxsty0/pxserv.docs-v2/tree/main"
+          docsRepositoryBase="https://github.com/pxserv/pxserv.docs/tree/main"
           editLink={text.editPage}
           feedback={{ content: text.feedback }}
           navbar={
@@ -108,7 +108,7 @@ export default async function LocaleLayout({
                 </span>
               }
               logoLink={`/${lang}/`}
-              projectLink="https://github.com/pxsty0/pxserv.docs-v2"
+              projectLink="https://github.com/pxserv/pxserv.docs"
             />
           }
           pageMap={await getPageMap(`/${lang}`)}
