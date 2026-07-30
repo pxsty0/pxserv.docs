@@ -1,3 +1,5 @@
+import { Callout } from "nextra/components";
+
 # JavaScript / TypeScript Kütüphanesi
 
 PxServ npm paketi, Node.js ve TypeScript projelerinden PxServ API ile güvenli ve okunabilir şekilde çalışmak için kullanılan resmi istemcidir. Web panelleri, otomasyon servisleri, backend uygulamaları ve cihaz verilerini işleyen yardımcı servisler için uygundur.
@@ -42,8 +44,14 @@ const pxServ = new PxServ({
 });
 ```
 
-> [!WARNING]
-> API anahtarınızı istemci tarafında herkese açık şekilde kullanmayın. Tarayıcı tabanlı projelerde anahtarı korumak için istekleri kendi backend servisiniz üzerinden yönlendirmeniz önerilir.
+<Callout type="warning">
+  <strong>API anahtarı güvenliği</strong>
+  <div>
+    API anahtarınızı istemci tarafında herkese açık şekilde kullanmayın.
+    Tarayıcı tabanlı projelerde anahtarı korumak için istekleri kendi backend
+    servisiniz üzerinden yönlendirmeniz önerilir.
+  </div>
+</Callout>
 
 ## Temel kullanım
 

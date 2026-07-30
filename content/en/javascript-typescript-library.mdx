@@ -1,3 +1,5 @@
+import { Callout } from 'nextra/components'
+
 # JavaScript / TypeScript Library
 
 The PxServ npm package is the official client for working with the PxServ API from Node.js and TypeScript projects. It is suitable for dashboards, automation services, backend applications, and helper services that process device data.
@@ -42,8 +44,14 @@ const pxServ = new PxServ({
 });
 ```
 
-> [!WARNING]
-> Do not expose your API key directly in public client-side code. For browser-based projects, route requests through your own backend service to protect the key.
+<Callout type="warning">
+  <strong>API key security</strong>
+  <div>
+    Do not expose your API key directly in public client-side code. For
+    browser-based projects, route requests through your own backend service to
+    protect the key.
+  </div>
+</Callout>
 
 ## Basic Usage
 

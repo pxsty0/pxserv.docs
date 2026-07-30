@@ -1,3 +1,5 @@
+import { Callout } from 'nextra/components'
+
 # Arduino Library
 
 The PxServ Arduino library lets ESP32, ESP8266, and other Arduino-compatible Wi-Fi boards connect directly to the PxServ API. It provides a lightweight client for common IoT workflows such as sending sensor data, reading device state, toggling remote values, and performing OTA-supported firmware updates.
@@ -22,8 +24,13 @@ Before using the library, make sure you have:
 * `PxServ.h` library
 * A stable Wi-Fi network with internet access
 
-> [!NOTE]
-> If you want to use OTA functions, install **version 1.3.0 or newer** of the PxServ Arduino library.
+<Callout type="warning">
+  <strong>Requirement</strong>
+  <div>
+    If you want to use OTA functions, install <b>version 1.3.0 or newer</b> of
+    the PxServ Arduino library.
+  </div>
+</Callout>
 
 ## Installation
 

@@ -1,3 +1,5 @@
+import { Callout } from 'nextra/components'
+
 # Rust Library
 
 The `pxserv` crate is a synchronous client for working with the PxServ API from Rust applications. It provides a straightforward API for CLI tools, backend services, data-processing applications, and non-hardware automation workflows.
@@ -27,8 +29,13 @@ fn main() {
 }
 ```
 
-> [!WARNING]
-> Prefer passing the API key through an environment variable or secret manager instead of hardcoding it in source code.
+<Callout type="warning">
+  <strong>API key security</strong>
+  <div>
+    Prefer passing the API key through an environment variable or secret
+    manager instead of hardcoding it in source code.
+  </div>
+</Callout>
 
 ## Basic Usage
 

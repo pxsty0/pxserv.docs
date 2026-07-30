@@ -1,3 +1,5 @@
+import { Callout } from "nextra/components";
+
 # Rust Kütüphanesi
 
 `pxserv` crate'i, Rust uygulamalarından PxServ API ile çalışmak için kullanılan senkron bir istemcidir. CLI araçları, backend servisleri, veri işleme uygulamaları ve donanım dışı otomasyon süreçleri için sade bir API sunar.
@@ -27,8 +29,13 @@ fn main() {
 }
 ```
 
-> [!WARNING]
-> API anahtarınızı kaynak kod içinde sabitlemek yerine ortam değişkeni veya secret yönetimi üzerinden vermeniz önerilir.
+<Callout type="warning">
+  <strong>API anahtarı güvenliği</strong>
+  <div>
+    API anahtarınızı kaynak kod içinde sabitlemek yerine ortam değişkeni veya
+    secret yönetimi üzerinden vermeniz önerilir.
+  </div>
+</Callout>
 
 ## Temel kullanım
 
